@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.BL.Models", "Linknight.BL.Models\Linknight.BL.Models.csproj", "{823F1C7F-E41B-4055-B2AC-B6124917A229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.BL", "Linknight.BL\Linknight.BL.csproj", "{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.PL", "Linknight.PL\Linknight.PL.csproj", "{0F59C66B-EBFD-4FDB-A198-05154525D551}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Linknight.DB", "Linknight.DB\Linknight.DB.sqlproj", "{FB4A42CA-A183-4755-B68A-D087ADB5FA65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{823F1C7F-E41B-4055-B2AC-B6124917A229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823F1C7F-E41B-4055-B2AC-B6124917A229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823F1C7F-E41B-4055-B2AC-B6124917A229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823F1C7F-E41B-4055-B2AC-B6124917A229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F59C66B-EBFD-4FDB-A198-05154525D551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F59C66B-EBFD-4FDB-A198-05154525D551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F59C66B-EBFD-4FDB-A198-05154525D551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F59C66B-EBFD-4FDB-A198-05154525D551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6ABB82B-2200-48DD-BE97-784DE7FDA856}
+	EndGlobalSection
+EndGlobal
