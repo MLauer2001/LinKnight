@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.BL.Models", "Linknight.BL.Models\Linknight.BL.Models.csproj", "{823F1C7F-E41B-4055-B2AC-B6124917A229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linknight.BL.Models", "Linknight.BL.Models\Linknight.BL.Models.csproj", "{823F1C7F-E41B-4055-B2AC-B6124917A229}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.BL", "Linknight.BL\Linknight.BL.csproj", "{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linknight.BL", "Linknight.BL\Linknight.BL.csproj", "{454F189C-D08A-4D67-AFFF-B8E6144FBFF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.PL", "Linknight.PL\Linknight.PL.csproj", "{0F59C66B-EBFD-4FDB-A198-05154525D551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linknight.PL", "Linknight.PL\Linknight.PL.csproj", "{0F59C66B-EBFD-4FDB-A198-05154525D551}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Linknight.DB", "Linknight.DB\Linknight.DB.sqlproj", "{FB4A42CA-A183-4755-B68A-D087ADB5FA65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.UI", "Linknight.UI\Linknight.UI.csproj", "{89B91A31-AF31-4EDA-B10F-26091CCB64D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB4A42CA-A183-4755-B68A-D087ADB5FA65}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
