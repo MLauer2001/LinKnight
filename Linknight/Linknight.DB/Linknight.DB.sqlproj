@@ -74,6 +74,9 @@
     <Build Include="ForeignKeys\fk_tblVideo_LobbyId.sql" />
     <Build Include="StoredProcedure\spGetProfile.sql" />
     <Build Include="StoredProcedure\spGetVideos.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_ColorId.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_ArmorId.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_HelmId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Pre-Deploy\Script.PreDeployment1.sql" />
