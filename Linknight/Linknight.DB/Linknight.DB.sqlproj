@@ -56,5 +56,38 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Pre-Deploy" />
+    <Folder Include="Post-Deploy" />
+    <Folder Include="Tables" />
+    <Folder Include="Post-Deploy\DefaultData" />
+    <Folder Include="ForeignKeys" />
+    <Folder Include="StoredProcedure" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\tblHelm.sql" />
+    <Build Include="Tables\tblColor.sql" />
+    <Build Include="Tables\tblArmor.sql" />
+    <Build Include="Tables\tblProfile.sql" />
+    <Build Include="Tables\tblLobby.sql" />
+    <Build Include="Tables\tblVideo.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_LobbyId.sql" />
+    <Build Include="ForeignKeys\fk_tblVideo_LobbyId.sql" />
+    <Build Include="StoredProcedure\spGetProfile.sql" />
+    <Build Include="StoredProcedure\spGetVideos.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Pre-Deploy\Script.PreDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Post-Deploy\Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post-Deploy\DefaultData\Helms.sql" />
+    <None Include="Post-Deploy\DefaultData\Colors.sql" />
+    <None Include="Post-Deploy\DefaultData\Armors.sql" />
+    <None Include="Post-Deploy\DefaultData\Profiles.sql" />
+    <None Include="Post-Deploy\DefaultData\Lobbys.sql" />
+    <None Include="Post-Deploy\DefaultData\Videos.sql" />
+    <None Include="local.publish.xml" />
   </ItemGroup>
 </Project>

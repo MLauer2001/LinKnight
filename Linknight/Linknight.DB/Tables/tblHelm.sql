@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[tblHelm]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[HelmType] VARCHAR(50) NOT NULL
+)
