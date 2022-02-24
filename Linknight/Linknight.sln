@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linknight.PL", "Linknight.P
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Linknight.DB", "Linknight.DB\Linknight.DB.sqlproj", "{FB4A42CA-A183-4755-B68A-D087ADB5FA65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.UI", "Linknight.UI\Linknight.UI.csproj", "{89B91A31-AF31-4EDA-B10F-26091CCB64D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linknight.UI", "Linknight.UI\Linknight.UI.csproj", "{89B91A31-AF31-4EDA-B10F-26091CCB64D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linknight.PL.Test", "Linknight.PL.Test\Linknight.PL.Test.csproj", "{706477C4-1406-4B53-A2B1-FF27AF351C56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89B91A31-AF31-4EDA-B10F-26091CCB64D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{706477C4-1406-4B53-A2B1-FF27AF351C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{706477C4-1406-4B53-A2B1-FF27AF351C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{706477C4-1406-4B53-A2B1-FF27AF351C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{706477C4-1406-4B53-A2B1-FF27AF351C56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
