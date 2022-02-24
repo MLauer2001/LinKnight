@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Linknight.BL.Models\Linknight.BL.Models.csproj" />
+    <ProjectReference Include="..\Linknight.BL\Linknight.BL.csproj" />
+  </ItemGroup>
+
 </Project>
