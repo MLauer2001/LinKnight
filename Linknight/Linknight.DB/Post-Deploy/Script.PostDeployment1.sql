@@ -9,9 +9,9 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-:r .\DefaultData\Lobbys.sql
-:r .\DefaultData\Colors.sql
 :r .\DefaultData\Helms.sql
 :r .\DefaultData\Armors.sql
+:r .\DefaultData\Characters.sql
+:r .\DefaultData\Lobbys.sql
 :r .\DefaultData\Videos.sql
 :r .\DefaultData\Profiles.sql

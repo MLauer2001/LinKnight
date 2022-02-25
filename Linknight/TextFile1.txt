@@ -1,0 +1,5 @@
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -version 5.0
+Install-Package Microsoft.EntityFrameworkCore.Tools -version 5.0
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -version 5.0
+
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=Linknight.DB;Integrated Security=true" Microsoft.EntityFrameworkCore.SqlServer -Context LinknightEntities -UseDatabaseNames -force

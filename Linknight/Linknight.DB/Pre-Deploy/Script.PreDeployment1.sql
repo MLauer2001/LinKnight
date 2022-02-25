@@ -12,6 +12,6 @@
 DROP TABLE IF EXISTS dbo.tblProfile
 DROP TABLE IF EXISTS dbo.tblVideo
 DROP TABLE IF EXISTS dbo.tblLobby
+DROP TABLE IF EXISTS dbo.tblCharacter
 DROP TABLE IF EXISTS dbo.tblArmor
-DROP TABLE IF EXISTS dbo.tblColor
 DROP TABLE IF EXISTS dbo.tblHelm
