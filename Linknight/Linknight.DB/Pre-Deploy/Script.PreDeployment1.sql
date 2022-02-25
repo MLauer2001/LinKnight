@@ -15,3 +15,4 @@ DROP TABLE IF EXISTS dbo.tblLobby
 DROP TABLE IF EXISTS dbo.tblCharacter
 DROP TABLE IF EXISTS dbo.tblArmor
 DROP TABLE IF EXISTS dbo.tblHelm
+DROP TABLE IF EXISTS dbo.tblAdmin

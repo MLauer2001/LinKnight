@@ -17,6 +17,7 @@ namespace Linknight.PL
         {
         }
 
+        public virtual DbSet<tblAdmin> tblAdmins { get; set; }
         public virtual DbSet<tblArmor> tblArmors { get; set; }
         public virtual DbSet<tblCharacter> tblCharacters { get; set; }
         public virtual DbSet<tblHelm> tblHelms { get; set; }
@@ -36,6 +37,35 @@ namespace Linknight.PL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<tblAdmin>(entity =>
+            {
+                entity.ToTable("tblAdmin");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<tblArmor>(entity =>
             {
                 entity.ToTable("tblArmor");
@@ -112,6 +142,12 @@ namespace Linknight.PL
                     .HasForeignKey(d => d.CharacterId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_tblProfile_ColorId");
+
+                entity.HasOne(d => d.Helm)
+                    .WithMany(p => p.tblProfiles)
+                    .HasForeignKey(d => d.HelmId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_tblProfile_HelmId");
 
                 entity.HasOne(d => d.Lobby)
                     .WithMany(p => p.tblProfiles)

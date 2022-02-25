@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -49,6 +52,26 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a>
                         </li>
+                        @{
+                            if (Authenticate.IsAuthenticated(Context))
+                            {
+                                var fullname = @HttpContextAccessor.HttpContext.Session.GetString("fullname");
+                                if (fullname != null)
+                                    fullname = fullname.Replace("\"", "");
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark">@fullname</a>
+                                </li>
+                                <li class="nav-item text-dark">
+                                    <a asp-controller="Admin" asp-action="Logout" class="nav-link text-dark">Logout</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item text-dark">
+                                    <a asp-controller="Admin" asp-action="Login" class="nav-link text-dark">Login</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>

@@ -73,7 +73,10 @@
     <Build Include="ForeignKeys\fk_tblProfile_CharacterId.sql" />
     <Build Include="ForeignKeys\fk_tblVideo_LobbyId.sql" />
     <Build Include="StoredProcedure\spGetProfile.sql" />
-    <Build Include="StoredProcedure\spGetVideos.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_ColorId.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_ArmorId.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_HelmId.sql" />
+    <Build Include="Tables\tblAdmin.sql" />
     <Build Include="ForeignKeys\fk_tblProfile_LobbyId.sql" />
     <Build Include="ForeignKeys\fk_tblCharacter_ArmorId.sql" />
     <Build Include="ForeignKeys\fk_tblCharacter_HelmId.sql" />
@@ -92,5 +95,6 @@
     <None Include="Post-Deploy\DefaultData\Lobbys.sql" />
     <None Include="Post-Deploy\DefaultData\Videos.sql" />
     <None Include="local.publish.xml" />
+    <None Include="Post-Deploy\DefaultData\Admins.sql" />
   </ItemGroup>
 </Project>
