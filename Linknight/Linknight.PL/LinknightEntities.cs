@@ -143,12 +143,6 @@ namespace Linknight.PL
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_tblProfile_ColorId");
 
-                entity.HasOne(d => d.Helm)
-                    .WithMany(p => p.tblProfiles)
-                    .HasForeignKey(d => d.HelmId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_tblProfile_HelmId");
-
                 entity.HasOne(d => d.Lobby)
                     .WithMany(p => p.tblProfiles)
                     .HasForeignKey(d => d.LobbyId)
