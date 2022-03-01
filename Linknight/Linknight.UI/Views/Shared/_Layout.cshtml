@@ -15,12 +15,12 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <!-- Hey is Liz, this is just for me to read looking at this stuff and planning:
-    1. Use the Linknight.UI starter link to be the "Home" link. This should be in the middle based on wireframes
-    2. Set up additional nav bar below current nav bar. (Lower Nav bar will be hidden until "Menu button hit")
-    3. Set up 'Menu' button that will do a show/hide effect on nav bar 2. (utilize JQuery?)
-    4. Nav bar 2 will have: Home (Just in case) -> About -> Contact -> Settings
-    5. Nav bar 1 will have: Menu (button) -> Logo (clickable to Home) -> Search Bar -> Login (img link)
-    -->
+        1. Use the Linknight.UI starter link to be the "Home" link. This should be in the middle based on wireframes
+        2. Set up additional nav bar below current nav bar. (Lower Nav bar will be hidden until "Menu button hit")
+        3. Set up 'Menu' button that will do a show/hide effect on nav bar 2. (utilize JQuery?)
+        4. Nav bar 2 will have: Home (Just in case) -> About -> Contact -> Settings
+        5. Nav bar 1 will have: Menu (button) -> Logo (clickable to Home) -> Search Bar -> Login (img link)
+        -->
                 <form class="form-inline my-2 my-lg-0">
                     <!-- Custom class .nav-reveal (When clicked will show-hide nav-menu2) -->
                     <button class="btn btn-outline-dark my-2 my-sm-0 nav-reveal" type="button">Menu</button>
@@ -56,12 +56,14 @@
                             </li>
                         }
                     }
-                    </ul>
-                </div>
+                </ul>
+            </div>
+        </nav>
             <!-- Menu button can now show and hide this. Will need to mess with either CSS/Bootstrap to have field appear in separate nav menu below original -->
+           <nav class="navmenu navbar-default navbar-expand-lg border-bottom box-shadow mb-3">
             <div class="container nav-menu2">
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav flex-grow-1 d-sm-inline-flex justify-content-between">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -78,7 +80,6 @@
                     </ul>
                 </div>
             </div>
-
         </nav>
     </header>
     <div class="container">
