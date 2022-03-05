@@ -26,14 +26,13 @@
                         <button class="btn btn-outline-light my-2 my-sm-0 nav-reveal" type="button">Menu</button>
                     </form>
                     <!--Will need to replace 'Linknight.UI' with logo img-->
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Resources/LinKnight Side Logo.png" class="nav-logo" style="width:30%; height:15%" alt="Image" /></a>
-                    
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Linknight.UI</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <form class="d-flex">
-                        <input class="form-control mx-2" type="search" placeholder="Type Here..." aria-label="Type Here..." size="100"/>
+                        <input class="form-control mx-2" type="search" placeholder="Type Here..." aria-label="Type Here..." />
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <ul class="navbar-nav">
@@ -78,33 +77,28 @@
                                 <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Setting">Settings</a>
                             </li>
 
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </ul>
             </div>
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+        </div>
+    </nav>
+    </div>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
-        <footer class="border-top footer text-muted py-5 bg-dark">
-            <div class="container px-5">
-                
-                <p class="m-0 text-center text-white">&copy; 2022 - <img src="~/Resources/LinKnight Logo WIPv4.png" class="img-responsive" style="width:15%; height:15%; text-align:center;" alt="Image" />- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
-                
-                <img src="~/Resources/facebook-icon.png" class="col-sm-3" style= "height:25px; width:25px; display:block; margin-left:auto; margin-right:auto;"/>
-                <img src="~/Resources/instagram-icon.png" class="col-sm-3"style= "height:25px; width:25px;"/>
-                <img src="~/Resources/twitter-icon.png" class="col-sm-3"style= "height:25px; width:25px; align-content:center;"/>
-            </div>
-        </footer>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        @await RenderSectionAsync("Scripts", required: false)
+    <footer class="border-top footer text-muted pt-2 pb-2 py-5 bg-dark">
+        <div class="container px-5">
+            <p class="m-0 text-center text-white">&copy; 2022 - Linknight.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+        </div>
+    </footer>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

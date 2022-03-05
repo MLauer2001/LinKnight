@@ -1,3 +1,4 @@
+using Linknight.UI.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,7 @@ namespace Linknight.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
+            services.AddSignalR();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromSeconds(1000);
@@ -60,6 +62,7 @@ namespace Linknight.UI
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chathub");
             });
         }
     }
