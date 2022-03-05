@@ -17,88 +17,88 @@
     <link href="/lib/bootstrap/additional/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-        <div class="fixed-top">
-            <!--Want the Navbar to be scrollable-->
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
-                <div class="container">
-                    <form class="form-inline my-2 my-lg-0">
-                        <!-- Custom class .nav-reveal (When clicked will show-hide nav-menu2) -->
-                        <button class="btn btn-outline-light my-2 my-sm-0 nav-reveal" type="button">Menu</button>
-                    </form>
-                    <!--Will need to replace 'Linknight.UI' with logo img-->
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Linknight.UI</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <form class="d-flex">
-                        <input class="form-control mx-2" type="search" placeholder="Type Here..." aria-label="Type Here..." />
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <ul class="navbar-nav">
-                        @{
-                            if (Authenticate.IsAuthenticated(Context))
-                            {
-                                var fullname = @HttpContextAccessor.HttpContext.Session.GetString("fullname");
-                                if (fullname != null)
-                                    fullname = fullname.Replace("\"", "");
-                                <li class="nav-item">
-                                    <a class="nav-link text-light">@fullname</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-controller="Admin" asp-action="Logout" class="nav-link text-light">Logout</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item text-light">
-                                    <a asp-controller="Admin" asp-action="Login" class="nav-link text-light">Login</a>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
-            </nav>
-            <!-- Menu button can now show and hide this. Will need to mess with either CSS/Bootstrap to have field appear in separate nav menu below original -->
-            <nav class="navmenu navbar-default navbar-expand-lg border-bottom navbar-dark bg-dark box-shadow">
-                <div class="container nav-menu2">
-                    <div class="navbar-collapse collapse">
-                        <ul class="navbar-nav flex-grow-1 d-sm-inline-flex justify-content-between">
-                            <li class="nav-item">
-                                <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Setting">Settings</a>
-                            </li>
+    <div class="fixed-top" id="nav-holder">
+    <!--Want the Navbar to be scrollable-->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+        <div class="container">
+            <form class="form-inline my-2 my-lg-0">
+                <!-- Custom class .nav-reveal (When clicked will show-hide nav-menu2) -->
+                <button class="btn btn-outline-light my-2 my-sm-0 nav-reveal" type="button">Menu</button>
+            </form>
+            <!--Will need to replace 'Linknight.UI' with logo img-->
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Linknight.UI</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex">
+                <input class="form-control mx-2" type="search" placeholder="Type Here..." aria-label="Type Here..." />
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav">
+                @{
+                    if (Authenticate.IsAuthenticated(Context))
+                    {
+                        var fullname = @HttpContextAccessor.HttpContext.Session.GetString("fullname");
+                        if (fullname != null)
+                            fullname = fullname.Replace("\"", "");
+                        <li class="nav-item">
+                            <a class="nav-link text-light">@fullname</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="Logout" class="nav-link text-light">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item text-light">
+                            <a asp-controller="Admin" asp-action="Login" class="nav-link text-light">Login</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </nav>
+    <!-- Menu button can now show and hide this. Will need to mess with either CSS/Bootstrap to have field appear in separate nav menu below original -->
+    <nav class="navmenu navbar-default navbar-expand-lg border-bottom navbar-dark bg-dark box-shadow">
+        <div class="container nav-menu2">
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav flex-grow-1 d-sm-inline-flex justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Setting">Settings</a>
+                    </li>
 
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </ul>
             </div>
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+        </div>
+    </nav>
+    </div>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
-        <footer class="border-top footer text-muted py-5 bg-dark">
-            <div class="container px-5">
-                <p class="m-0 text-center text-white">&copy; 2022 - Linknight.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
-            </div>
-        </footer>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        @await RenderSectionAsync("Scripts", required: false)
+    <footer class="border-top footer text-muted py-5 bg-dark">
+        <div class="container px-5">
+            <p class="m-0 text-center text-white">&copy; 2022 - Linknight.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+        </div>
+    </footer>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
