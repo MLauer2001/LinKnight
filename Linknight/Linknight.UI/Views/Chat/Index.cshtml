@@ -6,7 +6,7 @@
     <div id="userinfo" class="row">
         <label for="user">Please input your User Name</label>
         <input type="text" class="form-control" id="user" name="user" autocomplete="off" />
-        <button type="button" class="btn btn-block" onclick="SetUser();">Join</button>
+        <button type="button" id="userButton" class="btn btn-block" onclick="SetUser();">Join</button>
     </div>
     <div id="messagearea" class="row" style="display: none;">
         <div>Joined as: <b><span id="user1">Not Set</span></b></div>
@@ -73,4 +73,24 @@
         document.getElementById("user1").innerText = userInput;
     }
 
+</script>
+
+<script>
+    var inputUser = document.getElementById("user");
+    inputUser.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("userButton").click();
+        }
+    });
+</script>
+
+<script>
+    var inputText = document.getElementById("message");
+    inputText.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("sendButton").click();
+        }
+    });
 </script>
