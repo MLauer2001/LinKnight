@@ -19,14 +19,16 @@
 <body>
         <div class="fixed-top">
             <!--Want the Navbar to be scrollable-->
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mx-0">
                 <div class="container">
                     <form class="form-inline my-2 my-lg-0">
                         <!-- Custom class .nav-reveal (When clicked will show-hide nav-menu2) -->
                         <button class="btn btn-outline-light my-2 my-sm-0 nav-reveal" type="button">Menu</button>
                     </form>
                     <!--Will need to replace 'Linknight.UI' with logo img-->
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Resources/LinKnightSideLogo-Test2.png" class="img-fluid" style="height:40%; width:40%;"/></a>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/Resources/LinKnightSideLogo-Test2.png" class="img-fluid" style="height:40%; width:40%;"/>
+                    </a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -90,18 +92,19 @@
     <footer class="border-top footer text-muted pt-2 pb-2 py-5 bg-dark">
         <div class="container px-5">
             <p class="m-0 text-center text-white">&copy; 2022 - <img src="~/Resources/LinKnightSideLogo-Test2.png" class="img-fluid" style="height:5%; width:5%;" /> - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+            <div class="d-flex row gx-5 justify-content-center">
+                <div class="col-md-1 py-1">
+                    <img src="~/Resources/facebook-icon-small.png" class="img-fluid"/>
+                </div>
+                <div class="col-md-1 py-1">
+                    <img src="~/Resources/instagram-icon-small.png" class="img-fluid"/>
+                </div>
+                <div class="col-md-1 py-1">
+                    <img src="~/Resources/twitter-icon-small.png" class="img-fluid"/>
+                </div>
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-1">
-                <img src="~/Resources/facebook-icon-small.png" class="img-fluid" style="max-height:50%; max-width:50%; align-content:center;" />
-            </div>
-            <div class="col-lg-1">
-                <img src="~/Resources/instagram-icon-small.png" class="img-fluid"  style="max-height:50%; max-width:50%; align-content:center;"/>
-            </div>
-            <div class="col-lg-1">
-                <img src="~/Resources/twitter-icon-small.png" class="img-fluid" style="max-height:50%; max-width:50%; align-content:center;" />
-            </div>
-        </div>
+     
     </footer>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>

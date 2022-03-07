@@ -6,7 +6,7 @@ $(function () {
     $(".nav-menu2").hide();
 
     $(".nav-reveal").click(function () {
-        $(".nav-menu2").toggle(); // testing -> Test completed, text will now show toggling when menu button clicked.
+        $(".nav-menu2").slideToggle(); // testing -> Test completed, text will now show toggling when menu button clicked.
         //further testing to be completed to have menu item appear below original nav bar -> WIP
         // alert("OMG IT WORKS!!!"); -- it does in fact work
     })
