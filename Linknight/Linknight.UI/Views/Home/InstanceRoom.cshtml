@@ -34,8 +34,114 @@
             <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!">Select Video</a></div>
         </div>
         <!-- RIGHT SIDE -->
-        <div class="col bg-dark">
-            Other Content
+        @*Testing Purposes, Delete later
+        <style>
+            #messagearea{
+                background-color:pink;
+                display:block;
+                overflow:auto;
+                height:500px;
+            }
+            #messagesList{
+                background-color:greenyellow;
+            }
+        </style>*@
+        <div class="col bg-light">
+            <header class="bg-light py-1">
+            </header>
+
+            <div class="container">
+                <div id="userinfo" class="row">
+                    <label for="user">Please input your User Name</label>
+                    <input type="text" class="form-control" id="user" name="user" autocomplete="off" />
+                    <button type="button" id="userButton" class="btn btn-block" onclick="SetUser();">Join</button>
+                </div>
+                <div id="messagearea" class="row" style="display: none;">
+                    <div>Joined as: <b><span id="user1">Not Set</span></b></div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-6">
+                            <ul id="messagesList"></ul>
+                        </div>
+                    </div>
+                    <hr />
+                    <input type="text" id="message" autocomplete="off" />
+                    <input type="button" id="sendButton" value="Send Message" />
+                </div>
+            </div>
+
+            <script src="~/js/signalr/dist/browser/signalr.js"></script>
+            <script>
+
+            "use strict";
+
+            var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
+            var user = "";
+
+            //Disable send button until connection is established
+            document.getElementById("sendButton").disabled = true;
+
+            connection.on("ReceiveMessage", function (user, message) {
+            var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            var encodedMsg = user + " says: " + msg;
+            var li = document.createElement("li");
+            li.textContent = encodedMsg;
+            document.getElementById("messagesList").appendChild(li);
+            });
+
+            connection.start().then(function () {
+                document.getElementById("sendButton").disabled = false;
+            }).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            document.getElementById("sendButton").addEventListener("click", function (event) {
+                var message = document.getElementById("message").value;
+                connection.invoke("SendMessage", user, message).then(function () {
+                    document.getElementById("message").value = "";
+                }).catch(function (err) {
+                    return console.error(err.toString());
+                });
+                event.preventDefault();
+            })
+
+            function SetUser() {
+                // Check the username
+                var userInput = document.getElementById("user").value;
+                if (userInput === "") {
+                    alert("Please enter your user name.");
+                    return;
+                }
+
+                user = userInput;
+
+                //Hide user div and show message panel.
+                document.getElementById("userinfo").style.display = 'none';
+                document.getElementById("messagearea").style.display = "block";
+                document.getElementById("user1").innerText = userInput;
+            }
+
+            </script>
+
+            <script>
+            var inputUser = document.getElementById("user");
+            inputUser.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("userButton").click();
+                }
+            });
+            </script>
+
+            <script>
+            var inputText = document.getElementById("message");
+            inputText.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("sendButton").click();
+                }
+            });
+            </script>
         </div>
     </div>
 
