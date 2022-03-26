@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace Linknight.BL
 {
-    public class HelmManager
+    public class ColorManager
     {
-        public static List<Helm> Load()
+        public static List<Color> Load()
         {
             try
             {
-                List<Helm> helms = new List<Helm>();
+                List<Color> colors = new List<Color>();
                 using (LinknightEntities dc = new LinknightEntities())
                 {
-                    dc.tblArmors
+                    dc.tblColors
                         .ToList()
-                        .ForEach(h => helms.Add(new Helm
+                        .ForEach(a => colors.Add(new Color
                         {
-                            Id = h.Id,
-                            Image = h.ArmorType
+                            Id = a.Id,
+                            Image = a.Color
                         }));
                 }
-                return helms;
+                return colors;
             }
             catch (Exception ex)
             {

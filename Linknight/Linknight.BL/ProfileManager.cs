@@ -13,7 +13,7 @@ namespace Linknight.BL
     {
         
 
-        public async static Task<int> Insert(Profile profile, bool rollback = false)
+        public static int Insert(Profile profile, bool rollback = false)
         {
             try
             {
@@ -27,7 +27,9 @@ namespace Linknight.BL
                     newrow.Id = Guid.NewGuid();
                     newrow.Name = profile.Name;
                     newrow.LobbyId = profile.LobbyId;
-                    newrow.CharacterId = profile.CharacterId;
+                    newrow.ColorId = profile.ColorId;
+                    newrow.ArmorId = profile.ArmorId;
+                    newrow.HelmId = profile.HelmId;
 
                     profile.Id = newrow.Id;
 
@@ -93,7 +95,9 @@ namespace Linknight.BL
                         if (rollback) transaction = dc.Database.BeginTransaction();
                         row.Name = profile.Name;
                         row.LobbyId = profile.LobbyId;
-                        row.CharacterId = profile.CharacterId;
+                        row.ColorId = profile.ColorId;
+                        row.HelmId = profile.HelmId;
+                        row.ArmorId = profile.ArmorId;
 
                         results = dc.SaveChanges();
                         if (rollback) transaction.Rollback();
@@ -128,7 +132,9 @@ namespace Linknight.BL
                         profile.Id = tblProfile.Id;
                         profile.Name = tblProfile.Name;
                         profile.LobbyId = tblProfile.LobbyId;
-                        profile.CharacterId = tblProfile.CharacterId;
+                        profile.ColorId = tblProfile.ColorId;
+                        profile.HelmId = tblProfile.HelmId;
+                        profile.ArmorId = tblProfile.ArmorId;
                         return profile;
                     }
                     else
@@ -158,7 +164,9 @@ namespace Linknight.BL
                             Id = c.Id,
                             Name = c.Name,
                             LobbyId = c.LobbyId,
-                            CharacterId = c.CharacterId
+                            ColorId = c.ColorId,
+                            ArmorId = c.ArmorId,
+                            HelmId = c.HelmId
                         }));
                 }
                 return profiles;

@@ -19,7 +19,7 @@ namespace Linknight.PL
 
         public virtual DbSet<tblAdmin> tblAdmins { get; set; }
         public virtual DbSet<tblArmor> tblArmors { get; set; }
-        public virtual DbSet<tblCharacter> tblCharacters { get; set; }
+        public virtual DbSet<tblColor> tblColors { get; set; }
         public virtual DbSet<tblHelm> tblHelms { get; set; }
         public virtual DbSet<tblLobby> tblLobbies { get; set; }
         public virtual DbSet<tblProfile> tblProfiles { get; set; }
@@ -78,9 +78,11 @@ namespace Linknight.PL
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<tblCharacter>(entity =>
+            
+
+            modelBuilder.Entity<tblColor>(entity =>
             {
-                entity.ToTable("tblCharacter");
+                entity.ToTable("tblColor");
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
@@ -88,18 +90,6 @@ namespace Linknight.PL
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.Armor)
-                    .WithMany(p => p.tblCharacters)
-                    .HasForeignKey(d => d.ArmorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_tblCharacter_ArmorId");
-
-                entity.HasOne(d => d.Helm)
-                    .WithMany(p => p.tblCharacters)
-                    .HasForeignKey(d => d.HelmId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_tblCharacter_HelmId");
             });
 
             modelBuilder.Entity<tblHelm>(entity =>
@@ -137,11 +127,23 @@ namespace Linknight.PL
                     .HasMaxLength(25)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Character)
+                entity.HasOne(d => d.Armor)
                     .WithMany(p => p.tblProfiles)
-                    .HasForeignKey(d => d.CharacterId)
+                    .HasForeignKey(d => d.ArmorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_tblProfile_ArmorId");
+
+                entity.HasOne(d => d.Color)
+                    .WithMany(p => p.tblProfiles)
+                    .HasForeignKey(d => d.ColorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_tblProfile_ColorId");
+
+                entity.HasOne(d => d.Helm)
+                    .WithMany(p => p.tblProfiles)
+                    .HasForeignKey(d => d.HelmId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_tblProfile_HelmId");
 
                 entity.HasOne(d => d.Lobby)
                     .WithMany(p => p.tblProfiles)

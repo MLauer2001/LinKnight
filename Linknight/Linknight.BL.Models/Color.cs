@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Linknight.BL.Models
 {
-    public class Character
+    public class Color
     {
         public int Id { get; set; }
-        public string Color { get; set; }
-        public int ArmorId { get; set; }
-        public int HelmId { get; set; }
+        public string Image { get; set; }
     }
 }

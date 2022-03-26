@@ -11,6 +11,8 @@ namespace Linknight.BL.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid LobbyId { get; set; }
-        public int CharacterId { get; set; }
+        public int HelmId { get; set; }
+        public int ArmorId { get; set; }
+        public int ColorId { get; set; }
     }
 }

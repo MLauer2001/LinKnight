@@ -9,12 +9,12 @@ namespace Linknight.PL
     {
         public tblArmor()
         {
-            tblCharacters = new HashSet<tblCharacter>();
+            tblProfiles = new HashSet<tblProfile>();
         }
 
         public int Id { get; set; }
         public string ArmorType { get; set; }
 
-        public virtual ICollection<tblCharacter> tblCharacters { get; set; }
+        public virtual ICollection<tblProfile> tblProfiles { get; set; }
     }
 }

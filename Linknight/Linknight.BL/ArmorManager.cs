@@ -10,7 +10,7 @@ namespace Linknight.BL
 {
     public class ArmorManager
     {
-        public async static Task<IEnumerable<Armor>> Load()
+        public static List<Armor> Load()
         {
             try
             {

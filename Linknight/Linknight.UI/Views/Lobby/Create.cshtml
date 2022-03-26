@@ -1,0 +1,54 @@
+﻿@model Linknight.UI.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View</h1>
+
+<h4>Profile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="View">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Profile.Name" class="control-label"></label>
+                <input asp-for="Profile.Name" class="form-control" />
+                <span asp-validation-for="Profile.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.LobbyId" class="control-label"></label>
+                <select asp-for="Profile.LobbyId" class="form-control col-md-10" asp-items="@(new SelectList(Model.Lobbys, "Id", "LobbyKey"))"></select>
+                <span asp-validation-for="Profile.LobbyId" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+            <label asp-for="Profile.HelmId" class="control-label"></label>
+            <select asp-for="Profile.HelmId" class="form-control col-md-10" asp-items="@(new SelectList(Model.Helms, "Id", "Image"))"></select>
+            <span asp-validation-for="Profile.HelmId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Profile.ArmorId" class="control-label"></label>
+            <select asp-for="Profile.HelmId" class="form-control col-md-10" asp-items="@(new SelectList(Model.Armors, "Id", "Image"))"></select>
+            <span asp-validation-for="Profile.ArmorId" class="text-danger"></span>
+        </div>
+            <div class="form-group">
+                <label asp-for="Profile.ColorId" class="control-label"></label>
+                <select asp-for="Profile.HelmId" class="form-control col-md-10" asp-items="@(new SelectList(Model.Colors, "Id", "Image"))"></select>
+                <span asp-validation-for="Profile.ColorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

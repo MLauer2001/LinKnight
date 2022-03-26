@@ -65,18 +65,19 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\tblHelm.sql" />
-    <Build Include="Tables\tblCharacter.sql" />
     <Build Include="Tables\tblArmor.sql" />
-    <Build Include="Tables\tblProfile.sql" />
     <Build Include="Tables\tblLobby.sql" />
     <Build Include="Tables\tblVideo.sql" />
-    <Build Include="ForeignKeys\fk_tblProfile_CharacterId.sql" />
+    <Build Include="ForeignKeys\fk_tblProfile_ColorId.sql" />
     <Build Include="ForeignKeys\fk_tblVideo_LobbyId.sql" />
     <Build Include="StoredProcedure\spGetProfile.sql" />
     <Build Include="Tables\tblAdmin.sql" />
     <Build Include="ForeignKeys\fk_tblProfile_LobbyId.sql" />
     <Build Include="ForeignKeys\fk_tblCharacter_ArmorId.sql" />
     <Build Include="ForeignKeys\fk_tblCharacter_HelmId.sql" />
+    <Build Include="Tables\tblColor.sql" />
+    <None Include="Post-Deploy\DefaultData\Colors.sql" />
+    <Build Include="Tables\tblProfile.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Pre-Deploy\Script.PreDeployment1.sql" />
@@ -86,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Post-Deploy\DefaultData\Helms.sql" />
-    <None Include="Post-Deploy\DefaultData\Characters.sql" />
     <None Include="Post-Deploy\DefaultData\Armors.sql" />
     <None Include="Post-Deploy\DefaultData\Profiles.sql" />
     <None Include="Post-Deploy\DefaultData\Lobbys.sql" />

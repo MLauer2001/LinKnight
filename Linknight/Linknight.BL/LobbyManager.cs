@@ -138,7 +138,7 @@ namespace Linknight.BL
             }
         }
 
-        public async static Task<IEnumerable<Lobby>> Load()
+        public static List<Lobby> Load()
         {
             try
             {
@@ -152,8 +152,8 @@ namespace Linknight.BL
                             Id = c.Id,
                             LobbyKey = c.LobbyKey
                         }));
-                }
                 return lobbys;
+                }
             }
             catch (Exception ex)
             {

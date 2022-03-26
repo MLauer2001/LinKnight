@@ -10,8 +10,8 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 :r .\DefaultData\Helms.sql
+:r .\DefaultData\Colors.sql
 :r .\DefaultData\Armors.sql
-:r .\DefaultData\Characters.sql
 :r .\DefaultData\Lobbys.sql
 :r .\DefaultData\Videos.sql
 :r .\DefaultData\Profiles.sql
