@@ -17,4 +17,9 @@
     <ProjectReference Include="..\Linknight.BL\Linknight.BL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Resources\Avatars\Body\Alter\" />
+    <Folder Include="wwwroot\Resources\Avatars\Head\Alter\" />
+  </ItemGroup>
+
 </Project>
