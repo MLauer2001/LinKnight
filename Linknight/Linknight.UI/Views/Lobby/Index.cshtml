@@ -19,6 +19,21 @@
 <header class="bg-dark py-5">
 </header>
 
+<style>
+    #messagearea {
+        display: block;
+        overflow: auto;
+        height: 50%;
+    }
+
+    #messagesList {
+        height: 30rem;
+        width: 15rem;
+        overflow-y: auto;
+        scroll-behavior: auto;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <!-- LEFT SIDE -->
@@ -31,19 +46,7 @@
             </video>
             <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!">Select Video</a></div>
         </div>
-        <!-- RIGHT SIDE -->
-        @*Testing Purposes, Delete later
-            <style>
-                #messagearea{
-                    background-color:pink;
-                    display:block;
-                    overflow:auto;
-                    height:500px;
-                }
-                #messagesList{
-                    background-color:greenyellow;
-                }
-            </style>*@
+        <!-- RIGHT SIDE -->            
         <div class="col bg-light">
             <header class="bg-light py-1">
             </header>
@@ -97,6 +100,8 @@
                 var message = document.getElementById("message").value;
                 connection.invoke("SendMessage", user, message).then(function () {
                     document.getElementById("message").value = "";
+                    var element = document.getElementById('messagesList');
+                    element.scrollTop = element.scrollHeight;
                 }).catch(function (err) {
                     return console.error(err.toString());
                 });
