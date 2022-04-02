@@ -1,24 +1,32 @@
 ﻿using Linknight.BL;
 using Linknight.BL.Models;
+using Linknight.UI.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Linknight.UI.ViewModels;
-using Linknight.UI.Extensions;
 
 namespace Linknight.UI.Controllers
 {
     public class LobbyController : Controller
     {
-        public IActionResult Index()
+        // GET: LobbyController1
+        public ActionResult Index()
         {
-            return View(ProfileManager.Load());
+            return View();
         }
+
+        // GET: LobbyController1/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: LobbyController1/Create
         public ActionResult Create()
         {
-            
             ViewBag.Title = "Profile";
             ProfileViewModel profileVM = new ProfileViewModel();
             profileVM.Profile = new Profile();
@@ -27,9 +35,9 @@ namespace Linknight.UI.Controllers
             profileVM.Armors = ArmorManager.Load();
             profileVM.Helms = HelmManager.Load();
             return View(profileVM);
-            
         }
 
+        // POST: LobbyController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProfileViewModel profileVM)
@@ -42,6 +50,48 @@ namespace Linknight.UI.Controllers
             catch
             {
                 return View(profileVM);
+            }
+        }
+
+        // GET: LobbyController1/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: LobbyController1/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: LobbyController1/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: LobbyController1/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
             }
         }
     }
