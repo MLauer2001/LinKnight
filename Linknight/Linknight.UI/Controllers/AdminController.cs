@@ -39,7 +39,7 @@ namespace Linknight.UI.Views
                         ViewBag.Message = "You are now logged in.";
                     }
                 }
-                return View("~/Views/Admin/Admin.cshtml");
+                return View("~/Views/Admin/Index.cshtml");
             }
             catch (Exception ex)
             {
