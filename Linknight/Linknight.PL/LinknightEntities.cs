@@ -23,6 +23,7 @@ namespace Linknight.PL
         public virtual DbSet<tblHelm> tblHelms { get; set; }
         public virtual DbSet<tblLobby> tblLobbies { get; set; }
         public virtual DbSet<tblProfile> tblProfiles { get; set; }
+        public virtual DbSet<tblUser> tblUsers { get; set; }
         public virtual DbSet<tblVideo> tblVideos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -78,8 +79,6 @@ namespace Linknight.PL
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
-            
 
             modelBuilder.Entity<tblColor>(entity =>
             {
@@ -151,6 +150,33 @@ namespace Linknight.PL
                     .HasForeignKey(d => d.LobbyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_tblProfile_LobbyId");
+            });
+
+            modelBuilder.Entity<tblUser>(entity =>
+            {
+                entity.ToTable("tblUser");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<tblVideo>(entity =>
