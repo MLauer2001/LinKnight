@@ -18,7 +18,7 @@ namespace Linknight.BL.Test
         {
             Task.Run(async () =>
             {
-                List<Color> colors = (List<Color>)await ColorManager.Load();
+                List<Color> colors = (List<Color>)ColorManager.Load();
                 Assert.AreEqual(4, colors.ToList().Count);
             }).GetAwaiter().GetResult();
         }

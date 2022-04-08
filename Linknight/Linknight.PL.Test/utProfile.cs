@@ -27,7 +27,7 @@ namespace Linknight.PL.Test
         [Test]
         public void LoadTest()
         {
-            Assert.AreEqual(4, dc.tblProfiles.Count());
+            Assert.IsTrue(dc.tblProfiles.Count() > 0);
         }
 
         [Test]
@@ -36,8 +36,10 @@ namespace Linknight.PL.Test
 
             tblProfile newrow = new tblProfile();
             newrow.Id = Guid.NewGuid();
-            newrow.CharacterId = dc.tblCharacters.FirstOrDefault().Id;
             newrow.LobbyId = dc.tblLobbies.FirstOrDefault().Id;
+            newrow.ColorId = dc.tblColors.FirstOrDefault().Id;
+            newrow.ArmorId = dc.tblArmors.FirstOrDefault().Id;
+            newrow.HelmId = dc.tblHelms.FirstOrDefault().Id;
             newrow.Name = "Name";
 
             dc.tblProfiles.Add(newrow);

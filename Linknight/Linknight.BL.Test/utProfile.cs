@@ -19,7 +19,7 @@ namespace Linknight.BL.Test
             Task.Run(async () =>
             {
                 List<Profile> profiles = (List<Profile>)await ProfileManager.Load();
-                Assert.AreEqual(4, profiles.ToList().Count);
+                Assert.IsTrue(profiles.ToList().Count > 0);
             }).GetAwaiter().GetResult();
         }
         [TestMethod]
@@ -30,7 +30,7 @@ namespace Linknight.BL.Test
                 Profile profile = new Profile();
 
 
-                int results = await ProfileManager.Insert(new Profile { Name = "Test" }, true);
+                int results = ProfileManager.Insert(new Profile { Name = "Test" }, true);
                 Assert.IsTrue(results > 0);
 
             });

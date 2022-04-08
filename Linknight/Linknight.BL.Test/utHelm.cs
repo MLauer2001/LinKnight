@@ -18,7 +18,7 @@ namespace Linknight.BL.Test
         {
             Task.Run(async () =>
             {
-                List<Helm> helms = (List<Helm>)await HelmManager.Load();
+                List<Helm> helms = (List<Helm>)HelmManager.Load();
                 Assert.AreEqual(4, helms.ToList().Count);
             }).GetAwaiter().GetResult();
         }

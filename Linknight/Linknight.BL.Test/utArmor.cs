@@ -18,7 +18,7 @@ namespace Linknight.BL.Test
         {
             Task.Run(async () =>
             {
-                List<Armor> armors = (List<Armor>)await ArmorManager.Load();
+                List<Armor> armors = (List<Armor>)ArmorManager.Load();
                 Assert.AreEqual(4, armors.ToList().Count);
             }).GetAwaiter().GetResult();
         }
