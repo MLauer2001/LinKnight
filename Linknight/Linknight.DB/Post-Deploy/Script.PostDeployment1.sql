@@ -16,3 +16,4 @@ Post-Deployment Script Template
 :r .\DefaultData\Videos.sql
 :r .\DefaultData\Profiles.sql
 :r .\DefaultData\Admins.sql
+:r .\DefaultData\Users.sql

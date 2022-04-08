@@ -78,6 +78,7 @@
     <Build Include="Tables\tblColor.sql" />
     <None Include="Post-Deploy\DefaultData\Colors.sql" />
     <Build Include="Tables\tblProfile.sql" />
+    <Build Include="Tables\tblUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Pre-Deploy\Script.PreDeployment1.sql" />
@@ -95,5 +96,6 @@
     <None Include="Post-Deploy\DefaultData\Admins.sql" />
     <None Include="StoredProcedure\spGetVideo.sql" />
     <None Include="remote.publish.xml" />
+    <None Include="Post-Deploy\DefaultData\Users.sql" />
   </ItemGroup>
 </Project>
