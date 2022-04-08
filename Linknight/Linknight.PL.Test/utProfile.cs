@@ -36,7 +36,6 @@ namespace Linknight.PL.Test
 
             tblProfile newrow = new tblProfile();
             newrow.Id = Guid.NewGuid();
-            newrow.CharacterId = dc.tblCharacters.FirstOrDefault().Id;
             newrow.LobbyId = dc.tblLobbies.FirstOrDefault().Id;
             newrow.Name = "Name";
 
