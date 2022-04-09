@@ -63,7 +63,7 @@ namespace Linknight.BL
             }
         }
 
-        public static int Update(User user, bool rollback = false)
+        public async static Task<int> Update(User user, bool rollback = false)
         {
             try
             {
@@ -82,7 +82,6 @@ namespace Linknight.BL
 
                         results = dc.SaveChanges();
                         if (rollback) transaction.Rollback();
-
                     }
                     else
                     {
@@ -121,6 +120,33 @@ namespace Linknight.BL
                         throw new Exception("Row was not found.");
                     }
                     return results;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static List<User> Load()
+        {
+            try
+            {
+                List<User> users = new List<User>();
+                using (LinknightEntities dc = new LinknightEntities())
+                {
+                    dc.tblUsers
+                        .ToList()
+                        .ForEach(u => users.Add(new User
+                        {
+                            Id = u.Id,
+                            Username = u.Username,
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Password = u.Password
+                        }));
+                    return users;
                 }
             }
             catch (Exception ex)
