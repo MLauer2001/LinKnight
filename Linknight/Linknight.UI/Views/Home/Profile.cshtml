@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "User's Page"; //Should get a field to input user's decided temp name or 'New User'
 }
+ 
 
 @*Need Form with:
     - Temp Name Field
@@ -20,14 +21,14 @@
         <div class="container">
             <div class="" id="avatar-main">
                 <div class="mx-auto" id="avatar-head">
-                    <button id="headSelectLeft" class="btn btn-primary"></button>
-                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" alt="Knight Helm" />
-                    <button id="headSelectRight" class="btn btn-primary"></button>
+                    <button id="headBtnLeft" class="btn btn-primary"></button>
+                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" alt="Knight Helm" id="imgChangeHead"/>
+                    <button id="headBtnRight" class="btn btn-primary"></button>
                 </div>
                 <div id="avatar-body" class="align-items-center">
-                    <button id="bodySelectLeft" class="btn btn-primary"></button>
-                    <img src="~/Resources/Avatars/Body/Base/Body1a.png" alt="Knight Body" />
-                    <button id="bodySelectRight" class="btn btn-primary"></button>
+                    <button id="bodyBtnLeft" class="btn btn-primary"></button>
+                    <img src="~/Resources/Avatars/Body/Base/Body1a.png" alt="Knight Body" id="imgChangeBody" />
+                    <button id="bodyBtnRight" class="btn btn-primary"></button>
                 </div>
                 <button id="resetAvatar" class="btn btn-outline-secondary py-1">Reset</button>
                 <button id="confirmAvatar" class="btn btn-outline-primary py-1">Confirm</button>
