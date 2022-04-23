@@ -11,11 +11,10 @@ $(function () {
     });
     $("#confirmurl").click(function () {
         changelink = $("#urltextbox").val();
-        var texturl = $("#video").text(changelink)
-        //var url = changelink.split("v=")[1].substring(0, 11);
-        //$('#video').attr('src', "https://www.youtube.com/embed/" + url);
+        var url = changelink.split("v=")[1].substring(0, 11);
+        $('#video').attr('src', 'https://www.youtube.com/embed/' + url);
 
-        alert(texturl);
+        //alert(changelink);
         HideBox();
     });
 
