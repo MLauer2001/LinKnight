@@ -81,6 +81,8 @@ $(function () {
         bodyId = 1;
         $('#imgChangeHead').attr('src', '/Resources/Avatars/Head/Base/Hat' + headId + 'a.png')
         $('#imgChangeBody').attr('src', '/Resources/Avatars/Body/Base/Body' + bodyId + 'a.png')
+
+        Hide();
     });
 
     // CONFIRM/DISPLAY AVATAR
@@ -93,7 +95,27 @@ $(function () {
             bodyId = 1;
         }
 
-        alert("Head = " + headId + " Body = " + bodyId);
+
+        $("#finished-avatar1").attr('src', '/Resources/Avatars/Head/Base/Hat' + headId + 'a.png')
+        $("#finished-avatar2").attr('src', '/Resources/Avatars/Body/Base/Body' + bodyId + 'a.png')
+        Show();
+
+        
+        //alert("Head = " + headId + " Body = " + bodyId);
 
     });
+
+    // SHOW DIV
+
+    function Show() {
+        $("#avatar-show").show();
+        //alert("Div is showing");
+    }
+
+    // HIDE DIV
+
+    function Hide() {
+        $("#avatar-show").hide();
+        //alert("Div is hiding");
+    }
 })
