@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "User's Page"; //Should get a field to input user's decided temp name or 'New User'
 }
- 
+
 
 @*Need Form with:
     - Temp Name Field
@@ -10,11 +10,13 @@
     - Setting Update (Pick light/dark mode)*@
 
 <div class="container py-5 mx-auto">
-    <h1>User's Page</h1>
+    <div class="dark">
+        <h1>User's Page</h1>
+    </div>
     <div class="container mx-auto" style="width:400px;">
         @*Name Creation*@
         <div class="py-2">
-            <label for="nameuser" class="form-label">Temporary Name:</label>
+            <label for="nameuser" class="form-label">Nickname:</label>
             <input id="nameuser" class="form-control" type="text" placeholder="Enter Name Here..." />
         </div>
         @*Avatar Creation*@
@@ -22,7 +24,7 @@
             <div class="" id="avatar-main">
                 <div class="mx-auto" id="avatar-head">
                     <button id="headBtnLeft" class="btn btn-primary"></button>
-                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" alt="Knight Helm" id="imgChangeHead"/>
+                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" alt="Knight Helm" id="imgChangeHead" />
                     <button id="headBtnRight" class="btn btn-primary"></button>
                 </div>
                 <div id="avatar-body" class="align-items-center">
@@ -33,9 +35,12 @@
                 <button id="resetAvatar" class="btn btn-outline-secondary py-1">Reset</button>
                 <button id="confirmAvatar" class="btn btn-outline-primary py-1">Confirm</button>
             </div>
-            <div class="container-fluid" id="avatar-show" hidden>
-                <h3>Current Avatar:</h3>
-                <div id="finished_avatar"></div>
+            <div class="container-fluid my-2" id="avatar-show" style="display:none;">
+                <h5 class="my-1">Current Avatar:</h5>
+                <div>
+                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" id="finished-avatar1" style="display:block;" />
+                    <img src="~/Resources/Avatars/Body/Base/Body1a.png" id="finished-avatar2" style="display:block;" />
+                </div>
             </div>
         </div>
         @*Setting Declaration*@

@@ -16,8 +16,7 @@
     |blank|  [blank space]   |blanks|
      [           footer          ]
     -->
-<header class="bg-dark py-5">
-</header>
+<div class="px-5 bg-dark">&nbsp;</div>
 
 <style>
     #messagearea {
@@ -34,7 +33,7 @@
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid my-5">
     <div class="row justify-content-center">
         <!-- LEFT SIDE -->
         <div class="col bg-dark">
@@ -46,9 +45,9 @@
             </iframe>
             <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select Video</a></div>
         </div>
-        <div id="textbox" style="display:none;"> 
-            <input id="urltextbox" class="form-control" type="text" placeholder="Put Link Here..." /> 
-            <button id="confirmurl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
+        <div id="textbox" class="container " style="display:none;"> 
+            <input id="urlTextbox" class="form-control" type="text" placeholder="Put Link Here..." /> 
+            <button id="confirmUrl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
         </div>
         
         <!-- RIGHT SIDE -->            
@@ -153,19 +152,8 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <!-- LEFT SIDE -->
-        <div class="col bg-dark">
-            Content Here
-            &nbsp;
-        </div>
-        <!-- CENTER -->
-        <div class="col-8 bg-dark">
-            <p class="container-fluid col-2 py-3" style="text-align:center;">&nbsp;</p>
-        </div>
-        <!-- RIGHT SIDE -->
-        <div class="col bg-dark">
-            Content Here
+    <div class="row justify-content-center my-5">
+        <div class="col-12 bg-dark p-5">
             &nbsp;
         </div>
     </div>

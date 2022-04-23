@@ -118,4 +118,10 @@ $(function () {
         $("#avatar-show").hide();
         //alert("Div is hiding");
     }
+
+    // Reset Page
+
+    function ResetAll() {
+
+    }
 })
