@@ -156,6 +156,11 @@ namespace Linknight.BL
             }
         }
 
+        public async static Task<List<User>> LoadById(Guid userId)
+        {
+            return null;
+        }
+
         public static bool Login(User user)
         {
             try

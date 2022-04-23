@@ -43,21 +43,21 @@
                         @{
                             if (Authenticate.IsAuthenticated(Context))
                             {
-                                var fullname = @HttpContextAccessor.HttpContext.Session.GetString("fullname");
-                                if (fullname != null)
-                                    fullname = fullname.Replace("\"", "");
-                                    
+                                var username = @HttpContextAccessor.HttpContext.Session.GetString("username");
+                                if (username != null)
+                                    username = username.Replace("\"", "");
+
                                 <li class="nav-item">
-                                    <a href="~/Admin" class="nav-link text-light">@fullname</a>
+                                    <a href="~/User/Profile" class="nav-link text-light">@username</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-controller="Admin" asp-action="Logout" class="nav-link text-light">Logout</a>
+                                    <a asp-controller="User" asp-action="Logout" class="nav-link text-light">Logout</a>
                                 </li>
                             }
                             else
                             {
                                 <li class="nav-item text-light">
-                                    <a asp-controller="Admin" asp-action="Login" class="nav-link text-light">Login</a>
+                                    <a asp-controller="User" asp-action="Login" class="nav-link text-light">Login</a>
                                 </li>
                             }
                         }

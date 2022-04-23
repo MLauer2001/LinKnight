@@ -22,7 +22,7 @@ namespace Linknight.BL.Models
         public string LastName { get; set; }
         [Required]
         public string Password { get; set; }
-        public string FullName { get; set; }
+        public string FullName { get { return FirstName + " " + LastName; } }
 
         // Delete
         public User(Guid id)

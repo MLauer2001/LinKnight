@@ -12,7 +12,7 @@ namespace Linknight.UI.Models
     {
         public static bool IsAuthenticated(HttpContext context)
         {
-            if (context.Session.GetObject<Admin>("admin") != null)
+            if (context.Session.GetObject<Admin>("user") != null)
             {
                 return true;
             }

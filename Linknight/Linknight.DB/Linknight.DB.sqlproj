@@ -96,5 +96,6 @@
     <None Include="Post-Deploy\DefaultData\Admins.sql" />
     <None Include="StoredProcedure\spGetVideo.sql" />
     <None Include="remote.publish.xml" />
+    <None Include="Post-Deploy\DefaultData\Users.sql" />
   </ItemGroup>
 </Project>
