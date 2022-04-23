@@ -42,10 +42,15 @@
         </div>
         <!-- CENTER -->
         <div class="col-8 bg-light">
-            <video class="container-fluid" controls>
+            <video class="container-fluid" id="video" controls>
             </video>
-            <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!">Select Video</a></div>
+            <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select Video</a></div>
         </div>
+        <div id="textbox" style="display:none;"> 
+            <input id="urltextbox" class="form-control" type="text" placeholder="Put Link Here..." /> 
+            <button id="confirmurl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
+        </div>
+        
         <!-- RIGHT SIDE -->            
         <div class="col bg-light">
             <header class="bg-light py-1">
