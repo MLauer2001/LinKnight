@@ -62,9 +62,9 @@ namespace Linknight.UI.Controllers
             }
         }
 
-        public ActionResult Profile()
+        public ActionResult Profile(Guid id)
         {
-            return View("~/Views/User/Profile.cshtml");
+            return View(UserManager.LoadById(id));
         }
 
         // GET: UserController
