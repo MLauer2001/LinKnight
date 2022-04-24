@@ -12,7 +12,7 @@ namespace Linknight.BL.Models
     {
         public Guid Id { get; set; }
         [Required]
-        [DisplayName("User ID")]
+        [DisplayName("User Name")]
         public string Username { get; set; }
         [Required]
         [DisplayName("First Name")]

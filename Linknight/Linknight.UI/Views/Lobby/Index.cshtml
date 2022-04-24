@@ -16,46 +16,48 @@
     |blank|  [blank space]   |blanks|
      [           footer          ]
     -->
-<div class="px-5 bg-dark" id="filler">&nbsp;</div>
+<div class="px-5 bg-dark filler">&nbsp;</div>
 
 <style>
     #messagearea {
         display: block;
         overflow: auto;
-        height: 50%;
+        height: 100%;
     }
 
     #messagesList {
-        height: 30rem;
+        height: 22rem;
         width: 15rem;
         overflow-y: auto;
         scroll-behavior: auto;
     }
 </style>
 
-<div class="container-fluid my-5">
-    <div class="row justify-content-center">
+<div class="container-fluid my-5 pb-4">
+    <div class="row justify-content-center h-100">
         <!-- LEFT SIDE -->
         <div class="col bg-dark">
-            Content here
+            <div class="col mb-5 bg-dark">
+                <div class="col bg-dark mt-3">
+                    <div class="bg-light">
+                        <p>User1:</p>
+                        <p>User2:</p>
+                        <p>User3:</p>
+                        <p>User4:</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- CENTER -->
-        <div class="col-8 bg-light">
-            <iframe class="container-fluid row h-50" id="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" controls>
+        <div class="col-8 bg-light row-5">
+            <iframe class="container-fluid row h-100" id="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" controls>
             </iframe>
-            <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select Video</a></div>
         </div>
-        <div id="textbox" class="container " style="display:none;"> 
-            <input id="urlTextbox" class="form-control" type="text" placeholder="Put Link Here..." /> 
-            <button id="confirmUrl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
-        </div>
-        
-        <!-- RIGHT SIDE -->            
-        <div class="col bg-light">
-            <header class="bg-light py-1">
-            </header>
 
-            <div class="container">
+        <!-- RIGHT SIDE -->
+        <div class="col bg-light">
+
+            <div class="container-fluid">
                 <div id="userinfo" class="row">
                     <label for="user">Please input your User Name</label>
                     <input type="text" class="form-control" id="user" name="user" autocomplete="off" />
@@ -74,87 +76,88 @@
                     <input type="button" id="sendButton" value="Send Message" />
                 </div>
             </div>
-
-            <script src="~/js/signalr/dist/browser/signalr.js"></script>
-            <script>
-
-            "use strict";
-
-            var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
-            var user = "";
-
-            //Disable send button until connection is established
-            document.getElementById("sendButton").disabled = true;
-
-            connection.on("ReceiveMessage", function (user, message) {
-            var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-            var encodedMsg = user + " says: " + msg;
-            var li = document.createElement("li");
-            li.textContent = encodedMsg;
-            document.getElementById("messagesList").appendChild(li);
-            });
-
-            connection.start().then(function () {
-                document.getElementById("sendButton").disabled = false;
-            }).catch(function (err) {
-                return console.error(err.toString());
-            });
-
-            document.getElementById("sendButton").addEventListener("click", function (event) {
-                var message = document.getElementById("message").value;
-                connection.invoke("SendMessage", user, message).then(function () {
-                    document.getElementById("message").value = "";
-                    var element = document.getElementById('messagesList');
-                    element.scrollTop = element.scrollHeight;
-                }).catch(function (err) {
-                    return console.error(err.toString());
-                });
-                event.preventDefault();
-            })
-
-            function SetUser() {
-                // Check the username
-                var userInput = document.getElementById("user").value;
-                if (userInput === "") {
-                    alert("Please enter your user name.");
-                    return;
-                }
-
-                user = userInput;
-
-                //Hide user div and show message panel.
-                document.getElementById("userinfo").style.display = 'none';
-                document.getElementById("messagearea").style.display = "block";
-                document.getElementById("user1").innerText = userInput;
-            }
-
-            </script>
-
-            <script>
-            var inputUser = document.getElementById("user");
-            inputUser.addEventListener("keyup", function (event) {
-                if (event.keyCode === 13) {
-                    event.preventDefault();
-                    document.getElementById("userButton").click();
-                }
-            });
-            </script>
-
-            <script>
-            var inputText = document.getElementById("message");
-            inputText.addEventListener("keyup", function (event) {
-                if (event.keyCode === 13) {
-                    event.preventDefault();
-                    document.getElementById("sendButton").click();
-                }
-            });
-            </script>
         </div>
     </div>
-
-    <div class="row justify-content-center my-5">
-        <div class="col-12 bg-dark p-5">
-            &nbsp;
+    <div class="col-4 container my-2">
+        <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select</a></div>
+        <div id="textbox" class="container-fluid justify-content-center" style="display:none;">
+            <input id="urlTextbox" class="form-control text-center" type="text" placeholder="Put Link Here..." />
+            <button id="confirmUrl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
         </div>
     </div>
 </div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script>
+
+    "use strict";
+
+    var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
+    var user = "";
+
+    //Disable send button until connection is established
+    document.getElementById("sendButton").disabled = true;
+
+    connection.on("ReceiveMessage", function (user, message) {
+        var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var encodedMsg = user + " says: " + msg;
+        var li = document.createElement("li");
+        li.textContent = encodedMsg;
+        document.getElementById("messagesList").appendChild(li);
+    });
+
+    connection.start().then(function () {
+        document.getElementById("sendButton").disabled = false;
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    document.getElementById("sendButton").addEventListener("click", function (event) {
+        var message = document.getElementById("message").value;
+        connection.invoke("SendMessage", user, message).then(function () {
+            document.getElementById("message").value = "";
+            var element = document.getElementById('messagesList');
+            element.scrollTop = element.scrollHeight;
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+        event.preventDefault();
+    })
+
+    function SetUser() {
+        // Check the username
+        var userInput = document.getElementById("user").value;
+        if (userInput === "") {
+            alert("Please enter your user name.");
+            return;
+        }
+
+        user = userInput;
+
+        //Hide user div and show message panel.
+        document.getElementById("userinfo").style.display = 'none';
+        document.getElementById("messagearea").style.display = "block";
+        document.getElementById("user1").innerText = userInput;
+    }
+
+</script>
+
+<script>
+    var inputUser = document.getElementById("user");
+    inputUser.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("userButton").click();
+        }
+    });
+</script>
+
+<script>
+    var inputText = document.getElementById("message");
+    inputText.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("sendButton").click();
+        }
+    });
+</script>

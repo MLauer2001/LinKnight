@@ -74,7 +74,12 @@ body {
     background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url('/Resources/Images/NightSky.jpg');
 }
 
-#filler {
+.filler {
     width: auto;
     height: 5em;
+}
+
+.content{
+    width: auto;
+    min-height: 22rem;
 }
