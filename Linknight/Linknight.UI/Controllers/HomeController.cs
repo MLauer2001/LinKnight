@@ -56,6 +56,10 @@ namespace Linknight.UI.Controllers
         {
             return View();
         }
+        public IActionResult updates()
+        {
+            return View();
+        }
 
 
 
