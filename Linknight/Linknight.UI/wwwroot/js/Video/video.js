@@ -12,6 +12,7 @@ $(function () {
         //alert("Is showing");
         ClearUrl();
         ShowBox();
+        HideSelect();
         
     });
 
@@ -24,6 +25,7 @@ $(function () {
 
         //alert(changelink);
         HideBox();
+        ShowSelect();
     });
 
     //Clear Url
@@ -39,12 +41,20 @@ $(function () {
         //alert("Div is showing");
     }
 
+    //Show OTHER div
+
+    function ShowSelect() {
+        $("#select").show();
+    }
     //Hide DIV
 
     function HideBox() {
         $("#textbox").hide();
         //alert("Div is showing");
     }
-    
 
+    //Hide OTHER div
+    function HideSelect() {
+        $("#select").hide();
+    }
 })
