@@ -5,13 +5,13 @@
 <!--Should only really need to have this as the _layout shared document already has needed info-->
 <body>
     <!-- Header-->
-    <header class="bg-dark py-5">
+    <header class="bg-dark py-5" id="starryBack">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center my-5">
-                        <h1 class="display-5 fw-bolder text-white mb-2">Get started on your journey today!</h1>
-                        <p class="lead text-white-50 mb-4">So, you want to join your friends and watch videos together? Well, there are some things that need to be done first you need to create an account. This can be done by clicking login and then clicking create account. Then put in your info and make an account.!</p>
+                        <h1 class="display-5 fw-bolder text-white mb-2">Watch videos while you 'link' up with your friends!</h1>
+                        <p class="lead text-white-50 mb-4">It's as simple as clicking a button and copying a link to your favorite videos!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                             <a class="btn btn-primary btn-lg px-4 me-sm-3" asp-area="" asp-controller="Lobby" asp-action="Create">Create a Room</a>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/CustomizeVect.png" alt="Customize image"/></div>
                     <h2 class="h4 fw-bolder">Customize your Profile and Look</h2>
                     <p>With LinKnight you can really make your account feel more like you with our revolutionary character creation suite for your own character. Choose from different options to really make yourself stand out from the rest!</p>
-                    <a class="text-decoration-none"asp-area="" asp-controller="Home" asp-action="Profile">
+                    <a class="text-decoration-none"asp-area="" asp-controller="User" asp-action="Profile">
                         Edit your profile Here
                         <i class="bi bi-arrow-right"></i>
                     </a>

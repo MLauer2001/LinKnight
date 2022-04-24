@@ -69,3 +69,12 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+#starryBack {
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url('/Resources/Images/NightSky.jpg');
+}
+
+#filler {
+    width: auto;
+    height: 5em;
+}
