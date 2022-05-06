@@ -53,27 +53,6 @@ namespace Linknight.UI.Controllers
             }
         }
 
-        // GET: LobbyController1/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: LobbyController1/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: LobbyController1/Delete/5
         public ActionResult Delete(int id)
         {
