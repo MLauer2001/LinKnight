@@ -22,14 +22,19 @@ namespace Linknight.UI.Controllers
             User user = JsonConvert.DeserializeObject<User>(result);
             lobbyVm.User = user;
 
-            return View(lobbyVm);
+            return View("Index", lobbyVm);
         }
 
 
         // GET: LobbyController1/Details/5
         public ActionResult Details()
         {
-            return View();
+            LobbyVm lobbyVm = new LobbyVm();
+            string result = HttpContext.Session.GetString("user");
+            User user = JsonConvert.DeserializeObject<User>(result);
+            lobbyVm.User = user;
+
+            return View("Lobby", lobbyVm);
         }
 
         // GET: LobbyController1/Create
