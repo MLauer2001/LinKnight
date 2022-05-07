@@ -2,13 +2,14 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseName>lauerdb</TargetDatabaseName>
+    <TargetDatabaseName>Linknight</TargetDatabaseName>
     <DeployScriptFileName>Linknight.DB.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=lauerdb.database.windows.net;Persist Security Info=True;User ID=lauerdb;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False</TargetConnectionString>
     <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <CreateNewDatabase>False</CreateNewDatabase>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
     <DatabaseEdition>Basic</DatabaseEdition>
     <DatabaseServiceObjective>Basic</DatabaseServiceObjective>
     <DatabaseMaximumSize>2</DatabaseMaximumSize>
-    <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
 </Project>

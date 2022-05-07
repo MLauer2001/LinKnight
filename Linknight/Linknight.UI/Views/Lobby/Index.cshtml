@@ -1,4 +1,6 @@
 ﻿@model Linknight.UI.ViewModels.LobbyVm
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Linknight Room";
 }
@@ -44,6 +46,11 @@
                 <div class="col bg-dark mt-3">
                     <div class="bg-light">
                         <div>
+                            @{
+                                var username = @HttpContextAccessor.HttpContext.Session.GetString("username");
+                            }
+                            <a>@username</a>
+                            <a>@Model.User.Username</a>
                             @*<partial name="_Lobby" model ="Model.User"/>
                                 This info is currently not working, will troubleshoot tomorrow*@
                         </div>

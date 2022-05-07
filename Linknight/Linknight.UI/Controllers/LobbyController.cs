@@ -3,6 +3,7 @@ using Linknight.BL.Models;
 using Linknight.UI.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,20 @@ namespace Linknight.UI.Controllers
     public class LobbyController : Controller
     {
         // GET: LobbyController1
+        //[Route("~/Lobby/{username}")]
         public ActionResult Index()
         {
-            return View();
+            LobbyVm lobbyVm = new LobbyVm();
+            string result = HttpContext.Session.GetString("user");
+            User user = JsonConvert.DeserializeObject<User>(result);
+            lobbyVm.User = user;
+
+            return View(lobbyVm);
         }
 
+
         // GET: LobbyController1/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
             return View();
         }
