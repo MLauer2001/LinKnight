@@ -118,10 +118,10 @@
                     connection.invoke('JoinGroup', '@lobbyid');
 
                     var liElement = document.createElement('li');
-                    liElement.innerHTML = '<strong>' + name + '</strong>:&nbsp;&nbsp;' + 'Connected...';
+                    liElement.innerHTML = '<strong>' + name + '</strong>:&nbsp;&nbsp;' + 'Connecting...';
                     document.getElementById('discussion').appendChild(liElement);
 
-                    connection.invoke('sendmessagetogroup', "@lobbyid", name, ": Connected");
+                    connection.invoke('sendmessagetogroup', "@lobbyid", name, "has joined!");
 
                     document.getElementById('sendmessage').addEventListener('click', function (event) {
                         // Call the Send method on the hub.
@@ -157,76 +157,3 @@
 </div>
 
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script>
-
-    "use strict";
-
-    var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
-    var user = "";
-
-    //Disable send button until connection is established
-    document.getElementById("sendButton").disabled = true;
-
-    connection.on("ReceiveMessage", function (user, message) {
-        var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        var encodedMsg = user + " says: " + msg;
-        var li = document.createElement("li");
-        li.textContent = encodedMsg;
-        document.getElementById("messagesList").appendChild(li);
-    });
-
-    connection.start().then(function () {
-        document.getElementById("sendButton").disabled = false;
-    }).catch(function (err) {
-        return console.error(err.toString());
-    });
-
-    document.getElementById("sendButton").addEventListener("click", function (event) {
-        var message = document.getElementById("message").value;
-        connection.invoke("SendMessage", user, message).then(function () {
-            document.getElementById("message").value = "";
-            var element = document.getElementById('messagesList');
-            element.scrollTop = element.scrollHeight;
-        }).catch(function (err) {
-            return console.error(err.toString());
-        });
-        event.preventDefault();
-    })
-
-    function SetUser() {
-        // Check the username
-        var userInput = document.getElementById("user").value;
-        if (userInput === "") {
-            alert("Please enter your user name.");
-            return;
-        }
-
-        user = userInput;
-
-        //Hide user div and show message panel.
-        document.getElementById("userinfo").style.display = 'none';
-        document.getElementById("messagearea").style.display = "block";
-        document.getElementById("user1").innerText = userInput;
-    }
-
-</script>
-
-<script>
-    var inputUser = document.getElementById("user");
-    inputUser.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("userButton").click();
-        }
-    });
-</script>
-
-<script>
-    var inputText = document.getElementById("message");
-    inputText.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("sendButton").click();
-        }
-    });
-</script>
