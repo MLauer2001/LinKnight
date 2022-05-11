@@ -97,7 +97,14 @@ namespace Linknight.UI.Controllers
             try
             {
                 int results = LobbyManager.Insert(lobby).Result;
-                return RedirectToAction(nameof(Index));
+
+                LobbyVm lobbyVm = new LobbyVm();
+                string result = HttpContext.Session.GetString("user");
+                User user = JsonConvert.DeserializeObject<User>(result);
+                lobbyVm.User = user;
+                lobbyVm.Lobby = lobby;
+
+                return RedirectToAction("Details", new { id = lobbyVm.Lobby.Id });
             }
             catch
             {
