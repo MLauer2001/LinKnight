@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Linknight.BL.Models\Linknight.BL.Models.csproj" />
     <ProjectReference Include="..\Linknight.BL\Linknight.BL.csproj" />
+    <ProjectReference Include="..\Linknight.Utility\Linknight.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

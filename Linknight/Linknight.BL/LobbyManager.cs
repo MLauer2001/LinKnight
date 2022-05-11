@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace Linknight.BL
 {
-    public class LobbyManager
+    public static class LobbyManager
     {
-
-
         public async static Task<int> Insert(Lobby lobby, bool rollback = false)
         {
             try
@@ -43,40 +41,6 @@ namespace Linknight.BL
                 throw ex;
             }
         }
-
-        public async static Task<int> Delete(Guid id, bool rollback = false)
-        {
-            try
-            {
-                IDbContextTransaction transaction = null;
-                using (LinknightEntities dc = new LinknightEntities())
-                {
-
-                    tblLobby row = dc.tblLobbies.FirstOrDefault(c => c.Id == id);
-                    int results = 0;
-                    if (row != null)
-                    {
-                        if (rollback) transaction = dc.Database.BeginTransaction();
-
-                        dc.tblLobbies.Remove(row);
-                        results = dc.SaveChanges();
-                        if (rollback) transaction.Rollback();
-
-                    }
-                    else
-                    {
-                        throw new Exception("Row was not found.");
-                    }
-                    return results;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
         public async static Task<int> Update(Lobby lobby, bool rollback = false)
         {
             try
@@ -138,27 +102,61 @@ namespace Linknight.BL
             }
         }
 
-        public static List<Lobby> Load()
+        public async static Task<List<Lobby>> Load()
         {
             try
             {
-                List<Lobby> lobbys = new List<Lobby>();
-                using (LinknightEntities dc = new LinknightEntities())
+                using (var dc = new LinknightEntities())
                 {
-                    dc.tblLobbies
-                        .ToList()
-                        .ForEach(c => lobbys.Add(new Lobby
-                        {
-                            Id = c.Id,
-                            LobbyKey = c.LobbyKey
-                        }));
-                return lobbys;
+                    List<Lobby> lobbies = new List<Lobby>();
+
+                    dc.tblLobbies.ToList().ForEach(row => lobbies.Add(new Lobby()
+                    {
+                        Id = row.Id,
+                        LobbyKey = row.LobbyKey
+                    }));
+
+                    return lobbies;
                 }
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+        }
+
+        public async static Task<int> Delete(Guid id, bool rollback = false)
+        {
+            try
+            {
+                using (LinknightEntities dc = new LinknightEntities())
+                {
+                    int result = 0;
+                    IDbContextTransaction transaction = null;
+                    if (rollback) transaction = dc.Database.BeginTransaction();
+
+                    tblLobby deleterow = dc.tblLobbies.FirstOrDefault(row => row.Id == id);
+
+                    if (deleterow != null)
+                    {
+                        dc.tblLobbies.Remove(deleterow);
+                        result = dc.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new Exception("Row was not found.");
+                    }
+
+                    if (rollback) transaction.Rollback();
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
             }
         }
 

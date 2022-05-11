@@ -1,3 +1,4 @@
+using Linknight.API.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,22 @@ namespace Linknight.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Linknight.API", Version = "v1" });
             });
+
+            services.AddCors(options => options.AddPolicy("CorsPolicy",
+            builder =>
+            {
+                builder.AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .SetIsOriginAllowed((host) => true)
+                       .AllowCredentials();
+            }));
+
+
+            services.AddSignalR()
+             .AddJsonProtocol(options =>
+             {
+                 options.PayloadSerializerOptions.PropertyNamingPolicy = null;
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,9 +67,12 @@ namespace Linknight.API
 
             app.UseAuthorization();
 
+            app.UseCors("CorsPolicy");
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<LinkHub>("/linkHub");
             });
         }
     }

@@ -1,6 +1,4 @@
-﻿using Linknight.BL;
-using Linknight.BL.Models;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Linknight.BL.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -18,10 +16,11 @@ namespace Linknight.BL.Test
         {
             Task.Run(async () =>
             {
-                List<Lobby> lobbys = (List<Lobby>)LobbyManager.Load();
+                List<Lobby> lobbys = await LobbyManager.Load();
                 Assert.AreEqual(2, lobbys.ToList().Count);
             }).GetAwaiter().GetResult();
         }
+
         [TestMethod]
         public void InsertTest()
         {
@@ -36,26 +35,28 @@ namespace Linknight.BL.Test
             });
 
         }
+
         [TestMethod]
         public void UpdateTest()
         {
 
             var task = LobbyManager.Load();
-            IEnumerable<Lobby> lobbys = task;
+            IEnumerable<Lobby> lobbys = task.Result;
             Lobby lobby = lobbys.FirstOrDefault(c => c.LobbyKey == "Test");
             lobby.LobbyKey = "Tested";
             var results = LobbyManager.Update(lobby, true);
             Assert.IsTrue(results.Result > 0);
 
         }
+
         [TestMethod]
         public void DeleteTest()
         {
             Task.Run(async () =>
             {
                 var task = LobbyManager.Load();
-                IEnumerable<Lobby> lobbys = task;
-                Lobby lobby = lobbys.FirstOrDefault(c => c.LobbyKey == "Test");
+                IEnumerable<Lobby> lobbys = task.Result;
+                Lobby lobby = lobbys.FirstOrDefault(c => c.LobbyKey == "1234");
                 int results = await LobbyManager.Delete(lobby.Id, true);
                 Assert.IsTrue(results > 0);
 

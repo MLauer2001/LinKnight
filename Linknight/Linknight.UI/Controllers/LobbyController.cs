@@ -1,38 +1,59 @@
 ﻿using Linknight.BL;
 using Linknight.BL.Models;
 using Linknight.UI.ViewModels;
+using Linknight.Utility;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Linknight.UI.Controllers
 {
     public class LobbyController : Controller
     {
+        private static HttpClient InitializeClient()
+        {
+            HttpClient client = new ApiClient();
+            return client;
+        }
+
         // GET: LobbyController1
-        //[Route("~/Lobby/{username}")]
         public ActionResult Index()
         {
-            LobbyVm lobbyVm = new LobbyVm();
-            string result = HttpContext.Session.GetString("user");
-            User user = JsonConvert.DeserializeObject<User>(result);
-            lobbyVm.User = user;
+            HttpClient client = InitializeClient();
 
-            return View("Index", lobbyVm);
+            HttpResponseMessage response;
+            string result;
+            dynamic items;
+
+            response = client.GetAsync("Link").Result;
+            result = response.Content.ReadAsStringAsync().Result;
+            items = (JArray)JsonConvert.DeserializeObject(result);
+            List<Lobby> lobbies = items.ToObject<List<Lobby>>();
+
+            return View(nameof(Index), lobbies);
         }
 
 
         // GET: LobbyController1/Details/5
-        public ActionResult Details()
+        public ActionResult Details(Guid id)
         {
+            HttpClient client = InitializeClient();
+            HttpResponseMessage response = client.GetAsync("Link/" + id).Result;
+
+            string result = response.Content.ReadAsStringAsync().Result;
+            Lobby lobby = JsonConvert.DeserializeObject<Lobby>(result);
+
             LobbyVm lobbyVm = new LobbyVm();
-            string result = HttpContext.Session.GetString("user");
-            User user = JsonConvert.DeserializeObject<User>(result);
+            string results = HttpContext.Session.GetString("user");
+            User user = JsonConvert.DeserializeObject<User>(results);
             lobbyVm.User = user;
+            lobbyVm.Lobby = lobby;
 
             return View("Lobby", lobbyVm);
         }
@@ -40,14 +61,9 @@ namespace Linknight.UI.Controllers
         // GET: LobbyController1/Create
         public ActionResult Create()
         {
-            ViewBag.Title = "Profile";
-            ProfileViewModel profileVM = new ProfileViewModel();
-            profileVM.Profile = new Profile();
-            profileVM.Lobbys = LobbyManager.Load();
-            profileVM.Colors = ColorManager.Load();
-            profileVM.Armors = ArmorManager.Load();
-            profileVM.Helms = HelmManager.Load();
-            return View(profileVM);
+            HttpClient client = InitializeClient();
+            HttpResponseMessage response = client.GetAsync("Link/" + id).Result;
+            return View();
         }
 
         // POST: LobbyController1/Create

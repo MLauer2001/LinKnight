@@ -51,7 +51,7 @@
                             }
                             <a>@username</a>
                             <a>@Model.User.Username</a>
-                            <partial name="_Lobby" model ="Model.User"/>
+                            <partial name="_Lobby" model="Model.User" />
                         </div>
                         <p>User1:</p>
                         <p>User2:</p>
@@ -69,27 +69,83 @@
 
         <!-- RIGHT SIDE -->
         <div class="col bg-light">
-
-            <div class="container-fluid">
-                <div id="userinfo" class="row">
-                    <label for="user">Please input your User Name</label>
-                    <input type="text" class="form-control" id="user" name="user" autocomplete="off" />
-                    <button type="button" id="userButton" class="btn btn-block" onclick="SetUser();">Join</button>
-                </div>
-                <div id="messagearea" class="row" style="display: none;">
-                    <div>Joined as: <b><span id="user1">Not Set</span></b></div>
-                    <hr />
-                    <div class="row">
-                        <div class="col-6">
-                            <ul id="messagesList"></ul>
-                        </div>
-                    </div>
-                    <hr />
-                    <input type="text" id="message" autocomplete="off" />
-                    <input type="button" id="sendButton" value="Send Message" />
-                </div>
+            <div class="container">
+                <input type="text" id="message" />
+                <input type="button" id="sendmessage" value="Send" />
+                <input type="hidden" id="displayname" value="Test" />
+                <ul id="discussion"></ul>
             </div>
-        </div>
+        </div>        
+
+        @section scripts {
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+            <script>
+        $(function () {
+            console.log('Start the Hub');
+
+            var connection = new signalR.HubConnectionBuilder()
+                .withUrl('https://mryahtzeeapi.azurewebsites.net/GameHub')
+                .build();
+
+            console.log("After hub connection");
+
+            var messageInput = document.getElementById('message');
+            @{
+                var username = Model.User.Username;
+                string usernames = username;
+                var lobby = Model.Lobby.Id;
+                string lobbyid = lobby.ToString();
+            }
+            var name = "@usernames";
+
+
+            // Create a function that the hub can call to broadcast messages.
+            connection.on('receivemessage', function (name, message) {
+                // Html encode display name and message.
+                var encodedName = name;
+                var encodedMsg = message;
+                // Add the message to the page.
+
+                var liElement = document.createElement('li');
+                liElement.innerHTML = '<strong>' + encodedName + '</strong>:&nbsp;&nbsp;' + encodedMsg;
+                document.getElementById('discussion').appendChild(liElement);
+
+            });
+
+            connection.start()
+                .then(function () {
+                    console.log('connection started');
+                    connection.invoke('JoinGroup', '@lobbyid');
+
+                    var liElement = document.createElement('li');
+                    liElement.innerHTML = '<strong>' + name + '</strong>:&nbsp;&nbsp;' + 'Connected...';
+                    document.getElementById('discussion').appendChild(liElement);
+
+                    connection.invoke('sendmessagetogroup', "@lobbyid", name, ": Connected");
+
+                    document.getElementById('sendmessage').addEventListener('click', function (event) {
+                        // Call the Send method on the hub.
+                        //connection.invoke('sendmessage', name, messageInput.value);
+                        connection.invoke('sendmessagetogroup', "@lobbyid", name, messageInput.value);
+
+                        // Clear text box and reset focus for next comment.
+                        messageInput.value = '';
+                        messageInput.focus();
+                        event.preventDefault();
+                    });
+                })
+                .catch(error => {
+                    console.error(error.message);
+                });
+        });
+
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+
+            </script>
+        }
     </div>
     <div class="col-4 container my-2">
         <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select</a></div>
