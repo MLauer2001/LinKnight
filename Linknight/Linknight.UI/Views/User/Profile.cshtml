@@ -19,8 +19,14 @@
             <label for="nameuser" class="form-label">Nickname:</label>
             <input id="nameuser" class="form-control" type="text" placeholder="Enter Name Here..." />
         </div>
+        @*Set New Password*@
+        <div class="py-2">
+            <label for="passuser" class="form-label">Set New Password:</label>
+            <input id="passuser" class="form-control" type="text" placeholder="Enter Password" />
+            <input id="passuserconfirm" class="form-control my-2" type="text" placeholder="Confirm Password" />
+        </div>
         @*Avatar Creation*@
-        <div class="container">
+        <div class="container py-2 mx-auto">
             <div class="" id="avatar-main">
                 <div class="mx-auto" id="avatar-head">
                     <button id="headBtnLeft" class="btn btn-primary"></button>
@@ -32,25 +38,20 @@
                     <img src="~/Resources/Avatars/Body/Base/Body1a.png" alt="Knight Body" id="imgChangeBody" />
                     <button id="bodyBtnRight" class="btn btn-primary"></button>
                 </div>
-                <button id="resetAvatar" class="btn btn-outline-secondary py-1">Reset</button>
-                <button id="confirmAvatar" class="btn btn-outline-primary py-1">Confirm</button>
+            </div>
+            <div class="container">
+                <button id="resetAvatar" class="btn btn-outline-secondary py-2">Reset</button>
+                <button id="confirmAvatar" class="btn btn-outline-primary py-2">Confirm</button>
             </div>
             <div class="container-fluid my-2" id="avatar-show" style="display:none;">
-                <h5 class="my-1">Current Avatar:</h5>
-                <div>
+                <h5 class="my-1 mx">Current Avatar:</h5>
+                <div class="container mx-auto">
                     <img src="~/Resources/Avatars/Head/Base/Hat1a.png" id="finished-avatar1" style="display:block;" />
                     <img src="~/Resources/Avatars/Body/Base/Body1a.png" id="finished-avatar2" style="display:block;" />
                 </div>
             </div>
         </div>
-        @*Setting Declaration*@
-        <select class="form-select" aria-label="Personalization Setting">
-            <option selected>Choose Display Theme</option>
-            <option value="1">Light Mode</option>
-            <option value="2">Dark Mode</option>
-        </select>
 
-        <button id="resetForm" class="btn btn-secondary py-2">Reset</button>
-        <button id="confirmForm" class="btn btn-primary py-2">Save</button>
+        <button id="confirmForm" class="btn btn-primary py-2">Save Changes</button>
     </div>
 </div>

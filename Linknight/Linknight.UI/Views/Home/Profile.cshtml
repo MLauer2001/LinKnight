@@ -22,35 +22,35 @@
         @*Set New Password*@
     <div class="py-2">
         <label for="passuser" class="form-label">Set New Password:</label>
-        <input id="passuser" class="form-control py-2" type="text" placeholder="Enter Password" />
-        <input id="passuserconfirm" class="form-control" type="text" placeholder="Confirm Password" />
+        <input id="passuser" class="form-control" type="text" placeholder="Enter Password" />
+        <input id="passuserconfirm" class="form-control my-2" type="text" placeholder="Confirm Password" />
     </div>
         @*Avatar Creation*@
-        <div class="container py-2">
-            <div class="" id="avatar-main">
-                <div class="mx-auto" id="avatar-head">
-                    <button id="headBtnLeft" class="btn btn-primary"></button>
-                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" alt="Knight Helm" id="imgChangeHead" />
-                    <button id="headBtnRight" class="btn btn-primary"></button>
-                </div>
-                <div id="avatar-body" class="align-items-center">
-                    <button id="bodyBtnLeft" class="btn btn-primary"></button>
-                    <img src="~/Resources/Avatars/Body/Base/Body1a.png" alt="Knight Body" id="imgChangeBody" />
-                    <button id="bodyBtnRight" class="btn btn-primary"></button>
-                </div>
-                <div class="container mx-auto">
-                    <button id="resetAvatar" class="btn btn-outline-secondary py-2">Reset</button>
-                    <button id="confirmAvatar" class="btn btn-outline-primary py-2">Confirm</button>
-                </div>
+    <div class="container py-2 mx-auto">
+        <div class="" id="avatar-main">
+            <div class="mx-auto" id="avatar-head">
+                <button id="headBtnLeft" class="btn btn-primary"></button>
+                <img src="~/Resources/Avatars/Head/Base/Hat1a.png" alt="Knight Helm" id="imgChangeHead" />
+                <button id="headBtnRight" class="btn btn-primary"></button>
             </div>
-            <div class="container-fluid my-2" id="avatar-show" style="display:none;">
-                <h5 class="my-1 mx">Current Avatar:</h5>
-                <div class="container mx-auto">
-                    <img src="~/Resources/Avatars/Head/Base/Hat1a.png" id="finished-avatar1" style="display:block;" />
-                    <img src="~/Resources/Avatars/Body/Base/Body1a.png" id="finished-avatar2" style="display:block;" />
-                </div>
+            <div id="avatar-body" class="align-items-center">
+                <button id="bodyBtnLeft" class="btn btn-primary"></button>
+                <img src="~/Resources/Avatars/Body/Base/Body1a.png" alt="Knight Body" id="imgChangeBody" />
+                <button id="bodyBtnRight" class="btn btn-primary"></button>
             </div>
         </div>
+        <div class="container">
+            <button id="resetAvatar" class="btn btn-outline-secondary py-2">Reset</button>
+            <button id="confirmAvatar" class="btn btn-outline-primary py-2">Confirm</button>
+        </div>
+        <div class="container-fluid my-2" id="avatar-show" style="display:none;">
+            <h5 class="my-1 mx">Current Avatar:</h5>
+            <div class="container mx-auto">
+                <img src="~/Resources/Avatars/Head/Base/Hat1a.png" id="finished-avatar1" style="display:block;" />
+                <img src="~/Resources/Avatars/Body/Base/Body1a.png" id="finished-avatar2" style="display:block;" />
+            </div>
+        </div>
+    </div>
 
         <button id="confirmForm" class="btn btn-primary py-2">Save Changes</button>
     </div>
