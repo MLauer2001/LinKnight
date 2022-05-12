@@ -1,3 +1,56 @@
 ﻿@model Linknight.BL.Models.User
 
 <h1>@Model.Username</h1>
+<div class="container-fluid my-5 pb-4">
+    <div class="row justify-content-center h-100">
+        <!-- LEFT SIDE -->
+        <div class="col bg-dark">
+            <div class="col mb-5 bg-dark">
+                <div class="col bg-dark mt-3">
+                    <div class="bg-light">
+                        <p>User1:</p>
+                        <p>User2:</p>
+                        <p>User3:</p>
+                        <p>User4:</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CENTER -->
+        <div class="col-8 bg-light row-5">
+            <iframe class="container-fluid row h-100" id="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" controls>
+            </iframe>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col bg-light">
+
+            <div class="container-fluid">
+                <div id="userinfo" class="row">
+                    <label for="user">Please input your User Name</label>
+                    <input type="text" class="form-control" id="user" name="user" autocomplete="off" />
+                    <button type="button" id="userButton" class="btn btn-block" onclick="SetUser();">Join</button>
+                </div>
+                <div id="messagearea" class="row" style="display: none;">
+                    <div>Joined as: <b><span id="user1">Not Set</span></b></div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-6">
+                            <ul id="messagesList"></ul>
+                        </div>
+                    </div>
+                    <hr />
+                    <input type="text" id="message" autocomplete="off" />
+                    <input type="button" id="sendButton" value="Send Message" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 container my-2">
+        <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select</a></div>
+        <div id="textbox" class="container-fluid justify-content-center" style="display:none;">
+            <input id="urlTextbox" class="form-control text-center" type="text" placeholder="Put Link Here..." />
+            <button id="confirmUrl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
+        </div>
+    </div>
+</div>

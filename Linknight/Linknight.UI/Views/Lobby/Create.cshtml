@@ -4,29 +4,28 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 class="mb-5">Create</h1>
 
-<h4>Lobby</h4>
+<h4 class="container text-center">Lobby</h4>
 <hr />
-<div class="row">
+<div class="row container mx-auto">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input hidden asp-for="Id" class="form-control" />
             <div class="form-group">
-                <label asp-for="LobbyKey" class="control-label"></label>
                 <input asp-for="LobbyKey" class="form-control" />
                 <span asp-validation-for="LobbyKey" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group py-2">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="py-5">
+    <a asp-action="Index">Return Home</a>
 </div>
 
 @section Scripts {
