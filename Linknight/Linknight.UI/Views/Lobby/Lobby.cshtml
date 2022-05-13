@@ -110,6 +110,10 @@
                 liElement.innerHTML = '<strong>' + encodedName + '</strong>:&nbsp;&nbsp;' + encodedMsg;
                 document.getElementById('discussion').appendChild(liElement);
 
+
+                var url = encodedMsg.split("v=")[1].substring(0, 11);
+                $('#video').attr('src', 'https://www.youtube.com/embed/' + url);
+
             });
 
             connection.start()
