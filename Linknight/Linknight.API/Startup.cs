@@ -34,12 +34,23 @@ namespace Linknight.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Linknight.API", Version = "v1" });
             });
 
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AnyOrigin", builder =>
+            //    {
+            //        builder
+            //            .AllowAnyOrigin()
+            //            .AllowAnyMethod();
+            //    });
+            //});
+
             services.AddCors(options => options.AddPolicy("CorsPolicy",
             builder =>
             {
                 builder.AllowAnyHeader()
                        .AllowAnyMethod()
-                       .SetIsOriginAllowed((host) => true)
+                       .SetIsOriginAllowed(origin => true)
+                       //.SetIsOriginAllowed((host) => true)
                        .AllowCredentials();
             }));
 

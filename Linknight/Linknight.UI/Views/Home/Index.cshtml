@@ -13,7 +13,7 @@
                         <h1 class="display-5 fw-bolder text-white mb-2">Watch videos while you 'link' up with your friends!</h1>
                         <p class="lead text-white-50 mb-4">It's as simple as clicking a button and copying a link to your favorite videos!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" asp-area="" asp-controller="Lobby" asp-action="Create">Create a Room</a>
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" asp-area="" asp-controller="Home" asp-action="InstanceRoom">Create a Room</a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
         <div class="container px-5 my-5">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/CustomizeVect.png" alt="Customize image"/></div>
+                    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/CustomizeVect.png" alt="Customize image"/></div>
                     <h2 class="h4 fw-bolder">Customize your Profile and Look</h2>
                     <p>With LinKnight you can really make your account feel more like you with our revolutionary character creation suite for your own character. Choose from different options to really make yourself stand out from the rest!</p>
                     <a class="text-decoration-none"asp-area="" asp-controller="User" asp-action="Profile">
@@ -34,7 +34,7 @@
                     </a>
                 </div>
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/FriendsVect.png" alt="Plus image"/></div>
+                    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/FriendsVect.png" alt="Plus image"/></div>
                     <h2 class="h4 fw-bolder">Invite your Friends!</h2>
                     <p>Tired of watching videos alone? Well with LinKnight you can finally have some company with our friend system. Get some friends together and add their accounts to your friends list to make inviting them to your lobby easier.</p>
                     <a class="text-decoration-none" asp-area="" asp-controller="Lobby" asp-action="Index">
@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="col-lg-4">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/ConceptVect.png" alt="Concept image" /></div>
+                    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><img src="~/Resources/Smol/ConceptVect.png" alt="Concept image" /></div>
                     <h2 class="h4 fw-bolder">Link to Videos</h2>
                     <p>So how do we watch videos? The answer is simple its by putting in a youtube link and pressing play from there all that you need to do is sit back and enjoy. We synchronize it so that you and all those with you can watch it in perfect timing together.</p>
                     <a class="text-decoration-none" href="#!">
@@ -57,53 +57,7 @@
     <!-- Pricing section-->
     <section class="bg-light py-5 border-bottom container">
         <div class="row gx-5 justify-content-center">
-            <!-- Card 1-->
-            @*<div class="col-lg-6 col-xl-4">
-                    <div class="card mb-5 mb-xl-0">
-                        <div class="card-body p-5">
-                            <div class="small text-uppercase fw-bold text-muted">Free</div>
-                            <div class="mb-3">
-                                <span class="display-4 fw-bold">$0</span>
-                                <span class="text-muted">/ mo.</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="bi bi-check text-primary"></i>
-                                    <strong>1 users</strong>
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check text-primary"></i>
-                                    5GB storage
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check text-primary"></i>
-                                    Unlimited public projects
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check text-primary"></i>
-                                    Community access
-                                </li>
-                                <li class="mb-2 text-muted">
-                                    <i class="bi bi-x"></i>
-                                    Unlimited private projects
-                                </li>
-                                <li class="mb-2 text-muted">
-                                    <i class="bi bi-x"></i>
-                                    Dedicated support
-                                </li>
-                                <li class="mb-2 text-muted">
-                                    <i class="bi bi-x"></i>
-                                    Free linked domain
-                                </li>
-                                <li class="text-muted">
-                                    <i class="bi bi-x"></i>
-                                    Monthly status reports
-                                </li>
-                            </ul>
-                            <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
-                        </div>
-                    </div>
-                </div>*@
+           
             <!-- Card 2-->
             <div class="col-lg-6 col-xl-4">
                 <div class="card mb-5 mb-xl-0">
