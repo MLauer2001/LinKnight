@@ -24,6 +24,11 @@ namespace Linknight.UI.Controllers
             return client;
         }
 
+        public IActionResult TestLobby()
+        {
+            return View();
+        }
+
         // GET: LobbyController1
         public ActionResult Index()
         {

@@ -83,3 +83,21 @@ body {
     width: auto;
     min-height: 22rem;
 }
+
+#messagearea {
+    display: block;
+    overflow: auto;
+    height: 100%;
+}
+
+#messagesList {
+    height: 22rem;
+    width: 15rem;
+    overflow-y: auto;
+    scroll-behavior: auto;
+}
+
+#size-set {
+    min-height: 1080px;
+    max-height: auto;
+}
