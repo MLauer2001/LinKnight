@@ -4,14 +4,18 @@
     ViewData["Title"] = "Create";
 }
 
+<br />
+<br />
+
 <h4 class="container text-center">Create Lobby</h4>
 <hr />
 <div class="row container mx-auto">
-    <div class="col-md-4 ">
+    <div class="container col-md-4 justify-content-center">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input hidden asp-for="Id" class="form-control" />
             <div class="form-group">
+                <label asp-for="LobbyKey" class="control-label"></label>
                 <input asp-for="LobbyKey" class="form-control" />
                 <span asp-validation-for="LobbyKey" class="text-danger"></span>
             </div>
@@ -22,9 +26,9 @@
     </div>
 </div>
 
-<div class="py-5 col-md-4">
+@*<div class="py-5 col-md-4">
     <a asp-action="Index">Other Lobbies</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
