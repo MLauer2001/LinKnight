@@ -3,6 +3,7 @@ using Linknight.BL.Models;
 using Linknight.UI.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Linknight.UI.Controllers
         public IActionResult Logout()
         {
             SetUser(null);
-            return View();
+            return View("~/Views/Home/Index.cshtml");
         }
 
         [HttpPost]
@@ -102,19 +103,23 @@ namespace Linknight.UI.Controllers
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            string results = HttpContext.Session.GetString("user");
+            User user = JsonConvert.DeserializeObject<User>(results);
+            return View(user);
         }
 
         // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, User user)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                Task<int> results = UserManager.Update(user);
+                SetUser(user);
+                return View("~/Views/Home/Index.cshtml");
             }
             catch
             {

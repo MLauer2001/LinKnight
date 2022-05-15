@@ -10,8 +10,6 @@
 @{
     var username = @HttpContextAccessor.HttpContext.Session.GetString("username");
 }
-<a>@username</a>
-<a>@Model.User.Username</a>
 <partial name="_Lobby" model="Model.User" />
 
 @section scripts {
@@ -43,13 +41,15 @@
                 var encodedMsg = message;
                 // Add the message to the page.
 
+                var element = document.getElementById('discussion');
+                element.scrollTop = element.scrollHeight;
+
                 var liElement = document.createElement('li');
                 liElement.innerHTML = '<strong>' + encodedName + '</strong>:&nbsp;&nbsp;' + encodedMsg;
                 document.getElementById('discussion').appendChild(liElement);
 
-
                 var url = encodedMsg.split("v=")[1].substring(0, 11);
-                $('#video').attr('src', 'https://www.youtube.com/embed/' + url);
+                $('#video').attr('src', 'https://www.youtube.com/embed/' + url + "?autoplay=1");
 
             });
 
@@ -69,6 +69,9 @@
                         //connection.invoke('sendmessage', name, messageInput.value);
                         connection.invoke('sendmessagetogroup', "@lobbyid", name, messageInput.value);
 
+                        var element = document.getElementById('discussion');
+                        element.scrollTop = element.scrollHeight;
+
                         // Clear text box and reset focus for next comment.
                         messageInput.value = '';
                         messageInput.focus();
@@ -85,15 +88,25 @@
             return encodedValue;
         }
 
+        message.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("sendmessage").click();
+            }
+        });
+
+
+
+
     </script>
 }
-<div class="col-4 container my-2">
+@*<div class="col-4 container my-2">
     <div class="container-fluid col-2 py-1"><a class="btn btn-outline-primary" href="#!" id="select">Select</a></div>
     <div id="textbox" class="container-fluid justify-content-center" style="display:none;">
         <input id="urlTextbox" class="form-control text-center" type="text" placeholder="Put Link Here..." />
         <button id="confirmUrl" class="btn btn-outline-primary py-1" value="Submit">Confirm</button>
     </div>
-</div>
+</div>*@
 
 
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

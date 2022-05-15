@@ -78,7 +78,7 @@ namespace Linknight.BL
                         row.Username = user.Username;
                         row.FirstName = user.FirstName;
                         row.LastName = user.LastName;
-                        row.Password = user.Password;
+                        row.Password = GetHash(user.Password);
 
                         results = dc.SaveChanges();
                         if (rollback) transaction.Rollback();
